@@ -1,0 +1,593 @@
+00:40:36.749 - [Server balancer][L:00:40:36][P:] EventLogger initialized for server balancer
+00:40:36.749 - [Server balancer][L:00:40:36][P:] Inicializando como balanceador de carga
+00:40:36.756 - [Server balancer][L:00:40:36][P:] Servidor adicionado ao balanceador: ServerInfo{serverId='server1', address='localhost', port=5555, active=true}
+00:40:36.756 - [Server balancer][L:00:40:36][P:] Servidor adicionado ao balanceador: ServerInfo{serverId='server2', address='localhost', port=5556, active=true}
+00:40:36.757 - [Server balancer][L:00:40:36][P:] Servidor adicionado ao balanceador: ServerInfo{serverId='server3', address='localhost', port=5557, active=true}
+00:40:36.761 - [Server balancer][L:00:40:36][P:] Iniciando serviços...
+00:40:36.762 - [Server balancer][L:00:40:36][P:] Balanceador de carga iniciado
+00:40:36.762 - [Server balancer][L:00:40:36][P:] Todos os serviços iniciados com sucesso
+00:42:08.358 - [Server balancer] EventLogger initialized for server balancer
+00:42:08.358 - [Server balancer] Inicializando como balanceador de carga
+00:42:08.365 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server1', address='localhost', port=5555, active=true}
+00:42:08.365 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server2', address='localhost', port=5556, active=true}
+00:42:08.365 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server3', address='localhost', port=5557, active=true}
+00:42:08.369 - [Server balancer] Iniciando serviços...
+00:42:08.370 - [Server balancer] Balanceador de carga iniciado
+00:42:08.371 - [Server balancer] Todos os serviços iniciados com sucesso
+00:45:20.085 - [Server balancer] EventLogger initialized for server balancer
+00:45:20.085 - [Server balancer] Inicializando como balanceador de carga
+00:45:20.091 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server1', address='localhost', port=5555, active=true}
+00:45:20.092 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server2', address='localhost', port=5556, active=true}
+00:45:20.092 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server3', address='localhost', port=5557, active=true}
+00:45:20.096 - [Server balancer] Iniciando serviços...
+00:45:20.097 - [Server balancer] Balanceador de carga iniciado
+00:45:20.098 - [Server balancer] Todos os serviços iniciados com sucesso
+00:54:38.471 - [Server balancer] EventLogger initialized for server balancer
+00:54:38.472 - [Server balancer] Inicializando como balanceador de carga
+00:54:38.477 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server1', address='localhost', port=5555, active=true}
+00:54:38.477 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server2', address='localhost', port=5556, active=true}
+00:54:38.477 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server3', address='localhost', port=5557, active=true}
+00:54:38.481 - [Server balancer] Iniciando serviços...
+00:54:38.482 - [Server balancer] Balanceador de carga iniciado
+00:54:38.483 - [Server balancer] Todos os serviços iniciados com sucesso
+01:02:27.612 - [Server balancer] EventLogger initialized for server balancer
+01:02:27.613 - [Server balancer] Inicializando como balanceador de carga
+01:02:27.619 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server1', address='localhost', port=5555, active=true}
+01:02:27.619 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server2', address='localhost', port=5556, active=true}
+01:02:27.619 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server3', address='localhost', port=5557, active=true}
+01:02:27.624 - [Server balancer] Iniciando serviÃ§os...
+01:02:27.625 - [Server balancer] Balanceador de carga iniciado
+01:02:27.625 - [Server balancer] Todos os serviÃ§os iniciados com sucesso
+01:02:27.703 - [Server balancer] ServiÃ§o de balanceamento iniciado em: tcp://localhost:5000
+01:02:28.028 - [Server balancer] RequisiÃ§Ã£o recebida no balanceador: {"action": "register", "username": "w", "password": "123"}
+01:02:28.028 - [Server balancer] Servidor selecionado pelo balanceador: ServerInfo{serverId='server1', address='localhost', port=5555, active=true}
+01:02:28.039 - [Server balancer] RequisiÃ§Ã£o encaminhada para o servidor: tcp://localhost:5555
+01:07:39.625 - [Server balancer] Desligando servidor...
+01:07:39.626 - [Server balancer] ServiÃ§o de balanceamento parado
+01:07:39.626 - Logger closing
+01:09:09.091 - [Server balancer] EventLogger initialized for server balancer
+01:09:09.092 - [Server balancer] Inicializando como balanceador de carga
+01:09:09.097 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server1', address='localhost', port=5555, active=true}
+01:09:09.097 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server2', address='localhost', port=5556, active=true}
+01:09:09.097 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server3', address='localhost', port=5557, active=true}
+01:09:09.101 - [Server balancer] Iniciando serviÃ§os...
+01:09:09.102 - [Server balancer] Balanceador de carga iniciado
+01:09:09.102 - [Server balancer] Todos os serviÃ§os iniciados com sucesso
+01:09:09.174 - [Server balancer] ServiÃ§o de balanceamento iniciado em: tcp://localhost:5000
+01:09:27.862 - [Server balancer] RequisiÃ§Ã£o recebida no balanceador: {"action": "register", "username": "wrv", "password": "231"}
+01:09:27.862 - [Server balancer] Servidor selecionado pelo balanceador: ServerInfo{serverId='server1', address='localhost', port=5555, active=true}
+01:09:27.894 - [Server balancer] RequisiÃ§Ã£o encaminhada para o servidor: tcp://localhost:5555
+01:10:17.037 - [Server balancer] Desligando servidor...
+01:10:17.037 - [Server balancer] ServiÃ§o de balanceamento parado
+01:10:17.037 - Logger closing
+01:12:27.074 - [Server balancer] EventLogger initialized for server balancer
+01:12:27.075 - [Server balancer] Inicializando como balanceador de carga
+01:12:27.080 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server1', address='localhost', port=5555, active=true}
+01:12:27.080 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server2', address='localhost', port=5556, active=true}
+01:12:27.080 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server3', address='localhost', port=5557, active=true}
+01:12:27.084 - [Server balancer] Iniciando serviÃ§os...
+01:12:27.085 - [Server balancer] Balanceador de carga iniciado
+01:12:27.085 - [Server balancer] Todos os serviÃ§os iniciados com sucesso
+01:12:27.155 - [Server balancer] ServiÃ§o de balanceamento iniciado em: tcp://localhost:5000
+01:13:38.145 - [Server balancer] Desligando servidor...
+01:13:38.146 - [Server balancer] ServiÃ§o de balanceamento parado
+01:13:38.146 - Logger closing
+01:27:19.831 - [Server balancer] EventLogger initialized for server balancer
+01:27:19.831 - [Server balancer] Inicializando como balanceador de carga
+01:27:19.835 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server1', address='localhost', port=5555, active=true}
+01:27:19.835 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server2', address='localhost', port=5556, active=true}
+01:27:19.837 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server3', address='localhost', port=5557, active=true}
+01:27:19.840 - [Server balancer] Iniciando serviços...
+01:27:19.842 - [Server balancer] Balanceador de carga iniciado
+01:27:19.843 - [Server balancer] Todos os serviços iniciados com sucesso
+01:27:19.934 - [Server balancer] Serviço de balanceamento iniciado em: tcp://localhost:5000
+01:28:54.404 - [Server balancer] Requisição recebida no balanceador: {"action": "register", "username": "ergber", "password": "ewv"}
+01:28:54.405 - [Server balancer] Servidor selecionado pelo balanceador: ServerInfo{serverId='server1', address='localhost', port=5555, active=true}
+01:28:54.417 - [Server balancer] Requisição encaminhada para o servidor: tcp://localhost:5555
+01:28:54.456 - [Server balancer] Resposta enviada ao cliente
+01:43:11.127 - [Server balancer] EventLogger initialized for server balancer
+01:43:11.128 - [Server balancer] Inicializando como balanceador de carga
+01:43:11.133 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server1', address='localhost', port=5555, active=true}
+01:43:11.133 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server2', address='localhost', port=5556, active=true}
+01:43:11.133 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server3', address='localhost', port=5557, active=true}
+01:43:11.137 - [Server balancer] Iniciando serviços...
+01:43:11.138 - [Server balancer] Balanceador de carga iniciado
+01:43:11.139 - [Server balancer] Todos os serviços iniciados com sucesso
+01:43:11.211 - [Server balancer] Serviço de balanceamento iniciado em: tcp://localhost:5000
+01:44:48.412 - [Server balancer] EventLogger initialized for server balancer
+01:44:48.413 - [Server balancer] Inicializando como balanceador de carga
+01:44:48.417 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server1', address='localhost', port=5555, active=true}
+01:44:48.417 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server2', address='localhost', port=5556, active=true}
+01:44:48.419 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server3', address='localhost', port=5557, active=true}
+01:44:48.423 - [Server balancer] Iniciando serviços...
+01:44:48.424 - [Server balancer] Balanceador de carga iniciado
+01:44:48.424 - [Server balancer] Todos os serviços iniciados com sucesso
+01:44:48.492 - [Server balancer] Serviço de balanceamento iniciado em: tcp://localhost:5000
+01:45:21.157 - [Server balancer] EventLogger initialized for server balancer
+01:45:21.158 - [Server balancer] Inicializando como balanceador de carga
+01:45:21.162 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server1', address='localhost', port=5555, active=true}
+01:45:21.162 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server2', address='localhost', port=5556, active=true}
+01:45:21.162 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server3', address='localhost', port=5557, active=true}
+01:45:21.166 - [Server balancer] Iniciando serviços...
+01:45:21.167 - [Server balancer] Balanceador de carga iniciado
+01:45:21.168 - [Server balancer] Todos os serviços iniciados com sucesso
+01:45:21.231 - [Server balancer] Serviço de balanceamento iniciado em: tcp://localhost:5000
+01:46:46.964 - [Server balancer] EventLogger initialized for server balancer
+01:46:46.965 - [Server balancer] Inicializando como balanceador de carga
+01:46:46.969 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server1', address='localhost', port=5555, active=true}
+01:46:46.969 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server2', address='localhost', port=5556, active=true}
+01:46:46.970 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server3', address='localhost', port=5557, active=true}
+01:46:46.973 - [Server balancer] Iniciando serviços...
+01:46:46.974 - [Server balancer] Balanceador de carga iniciado
+01:46:46.975 - [Server balancer] Todos os serviços iniciados com sucesso
+01:46:47.042 - [Server balancer] Serviço de balanceamento iniciado em: tcp://localhost:5000
+01:48:01.147 - [Server balancer] EventLogger initialized for server balancer
+01:48:01.147 - [Server balancer] Inicializando como balanceador de carga
+01:48:01.152 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server1', address='localhost', port=5555, active=true}
+01:48:01.152 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server2', address='localhost', port=5556, active=true}
+01:48:01.152 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server3', address='localhost', port=5557, active=true}
+01:48:01.156 - [Server balancer] Iniciando serviços...
+01:48:01.157 - [Server balancer] Balanceador de carga iniciado
+01:48:01.158 - [Server balancer] Todos os serviços iniciados com sucesso
+01:48:01.230 - [Server balancer] Serviço de balanceamento iniciado em: tcp://localhost:5000
+12:32:42.838 - [Server balancer] EventLogger initialized for server balancer
+12:32:42.839 - [Server balancer] Inicializando como balanceador de carga
+12:32:42.847 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server1', address='localhost', port=5555, active=true}
+12:32:42.847 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server2', address='localhost', port=5556, active=true}
+12:32:42.847 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server3', address='localhost', port=5557, active=true}
+12:32:42.852 - [Server balancer] Iniciando serviços...
+12:32:42.854 - [Server balancer] Balanceador de carga iniciado
+12:32:42.856 - [Server balancer] Todos os serviços iniciados com sucesso
+12:32:42.991 - [Server balancer] Serviço de balanceamento iniciado em: tcp://localhost:5000
+12:33:36.963 - [Server balancer] EventLogger initialized for server balancer
+12:33:36.964 - [Server balancer] Inicializando como balanceador de carga
+12:33:36.972 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server1', address='localhost', port=5555, active=true}
+12:33:36.972 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server2', address='localhost', port=5556, active=true}
+12:33:36.973 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server3', address='localhost', port=5557, active=true}
+12:33:36.978 - [Server balancer] Iniciando serviços...
+12:33:36.980 - [Server balancer] Balanceador de carga iniciado
+12:33:36.981 - [Server balancer] Todos os serviços iniciados com sucesso
+12:33:37.176 - [Server balancer] Serviço de balanceamento iniciado em: tcp://localhost:5000
+12:34:54.182 - [Server balancer] Requisição recebida no balanceador: {"action": "register", "username": "ergwerhg", "password": "245"}
+12:34:54.183 - [Server balancer] Servidor selecionado pelo balanceador: ServerInfo{serverId='server1', address='localhost', port=5555, active=true}
+12:34:54.205 - [Server balancer] Requisição encaminhada para o servidor: tcp://localhost:5555
+12:34:54.261 - [Server balancer] Resposta enviada ao cliente
+12:35:35.037 - [Server balancer] Requisição recebida no balanceador: {"action": "register", "username": "dias", "password": "123"}
+12:35:35.038 - [Server balancer] Servidor selecionado pelo balanceador: ServerInfo{serverId='server2', address='localhost', port=5556, active=true}
+12:35:35.056 - [Server balancer] Requisição encaminhada para o servidor: tcp://localhost:5556
+12:35:35.133 - [Server balancer] Resposta enviada ao cliente
+23:13:36.613 - [Server balancer] EventLogger initialized for server balancer
+23:13:36.616 - [Server balancer] Inicializando serviços de sincronização
+23:13:36.667 - [Server balancer] Servidor registrado: server1 em localhost:6000
+23:13:36.668 - [Server balancer] Servidor registrado: server2 em localhost:6000
+23:13:36.668 - [Server balancer] Servidor registrado: server3 em localhost:6000
+23:13:36.668 - [Server balancer] Serviços de sincronização inicializados
+23:13:36.668 - [Server balancer] Inicializando como balanceador de carga
+23:13:36.672 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server1', address='localhost', port=5555, active=true}
+23:13:36.673 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server2', address='localhost', port=5556, active=true}
+23:13:36.673 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server3', address='localhost', port=5557, active=true}
+23:13:36.674 - [Server balancer] Iniciando serviços...
+23:13:36.674 - [Server balancer] Iniciando serviços de sincronização
+23:13:36.674 - [Server balancer] Iniciando serviço de sincronização de relógios
+23:13:36.676 - [Server balancer] TimeManager inicializado com offset: 0
+23:13:36.679 - [Server balancer] Iniciando verificação periódica de coordenador
+23:13:36.679 - [Server balancer] Iniciando agendamento de sincronização de relógios
+23:13:36.680 - [Server balancer] Comunicação entre servidores iniciada em tcp://localhost:6000
+23:13:36.680 - [Server balancer] Serviço de sincronização de relógios iniciado
+23:13:36.680 - [Server balancer] Serviços de sincronização iniciados
+23:13:36.681 - [Server balancer] Balanceador de carga iniciado
+23:13:36.682 - [Server balancer] Todos os serviços iniciados com sucesso
+23:13:36.708 - [Server balancer] Receptor de mensagens de sincronização iniciado em tcp://localhost:6000
+23:13:36.710 - [Server balancer] Serviço de balanceamento iniciado em: tcp://localhost:5000
+23:14:06.746 - [Server balancer] Mensagem enviada para server3: {"fromServer":"balancer","logicalTime":1,"action":"IS_COORDINATOR_REQUEST"}
+23:14:06.782 - [Server balancer] Mensagem recebida: {"fromServer":"balancer","logicalTime":1,"action":"IS_COORDINATOR_REQUEST"}
+23:14:06.784 - [Server balancer] Resposta recebida de server3: {"isCoordinator":false,"success":true,"logicalTime":2}
+23:14:06.794 - [Server balancer] Mensagem enviada para server2: {"fromServer":"balancer","logicalTime":4,"action":"IS_COORDINATOR_REQUEST"}
+23:14:06.892 - [Server balancer] Mensagem recebida: {"fromServer":"balancer","logicalTime":4,"action":"IS_COORDINATOR_REQUEST"}
+23:14:06.893 - [Server balancer] Resposta recebida de server2: {"isCoordinator":false,"success":true,"logicalTime":5}
+23:14:06.906 - [Server balancer] Mensagem enviada para server1: {"fromServer":"balancer","logicalTime":7,"action":"IS_COORDINATOR_REQUEST"}
+23:14:07.004 - [Server balancer] Mensagem recebida: {"fromServer":"balancer","logicalTime":7,"action":"IS_COORDINATOR_REQUEST"}
+23:14:07.005 - [Server balancer] Resposta recebida de server1: {"isCoordinator":false,"success":true,"logicalTime":8}
+23:14:07.008 - [Server balancer] Nenhum coordenador encontrado. Iniciando eleição.
+23:14:07.010 - [Server balancer] Iniciando eleição de coordenador
+23:14:07.013 - [Server balancer] Enviada mensagem de eleição para server3
+23:14:07.014 - [Server balancer] Enviada mensagem de eleição para server2
+23:14:07.014 - [Server balancer] Enviada mensagem de eleição para server1
+23:14:07.058 - [Server balancer] Mensagem enviada para server3: {"fromServer":"balancer","logicalTime":10,"action":"ELECTION"}
+23:14:07.059 - [Server balancer] Mensagem enviada para server1: {"fromServer":"balancer","logicalTime":12,"action":"ELECTION"}
+23:14:07.062 - [Server balancer] Mensagem enviada para server2: {"fromServer":"balancer","logicalTime":11,"action":"ELECTION"}
+23:14:12.018 - [Server balancer] Este servidor foi eleito como coordenador
+23:14:12.020 - [Server balancer] Enviada mensagem de coordenador para server3
+23:14:12.021 - [Server balancer] Enviada mensagem de coordenador para server2
+23:14:12.022 - [Server balancer] Enviada mensagem de coordenador para server1
+23:14:12.046 - [Server balancer] Mensagem enviada para server3: {"logicalTime":13,"action":"COORDINATOR","coordinatorId":"balancer"}
+23:14:12.048 - [Server balancer] Mensagem enviada para server2: {"logicalTime":14,"action":"COORDINATOR","coordinatorId":"balancer"}
+23:14:12.050 - [Server balancer] Mensagem enviada para server1: {"logicalTime":15,"action":"COORDINATOR","coordinatorId":"balancer"}
+23:14:12.065 - [Server balancer] Mensagem recebida: {"logicalTime":13,"action":"COORDINATOR","coordinatorId":"balancer"}
+23:14:12.066 - [Server balancer] Recebida mensagem de coordenador de balancer
+23:14:36.681 - [Server balancer] Iniciando sincronização de relógios como coordenador
+23:14:36.685 - [Server balancer] Enviado heartbeat como coordenador para 2 servidores
+23:14:36.686 - [Server balancer] Iniciando sincronização com 3 servidores
+23:14:36.712 - [Server balancer] Mensagem enviada para server3: {"logicalTime":17,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"balancer"}
+23:14:36.714 - [Server balancer] Mensagem enviada para server1: {"logicalTime":19,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"balancer"}
+23:14:36.716 - [Server balancer] Mensagem enviada para server2: {"logicalTime":18,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"balancer"}
+23:14:36.720 - [Server balancer] Mensagem enviada para server2: {"coordinator":"balancer","logicalTime":21,"action":"TIME_REQUEST","timestamp":1746584076686}
+23:14:36.720 - [Server balancer] Mensagem enviada para server3: {"coordinator":"balancer","logicalTime":20,"action":"TIME_REQUEST","timestamp":1746584076686}
+23:14:36.721 - [Server balancer] Mensagem enviada para server1: {"coordinator":"balancer","logicalTime":22,"action":"TIME_REQUEST","timestamp":1746584076686}
+23:14:39.691 - [Server balancer] Calculando ajuste de relógio com 1 amostras
+23:14:39.694 - [Server balancer] Offset médio calculado: 0ms
+23:14:39.705 - [Server balancer] Relógio atualizado: offset anterior=0, novo offset=0, ajuste=0ms
+23:23:32.401 - [Server balancer] EventLogger initialized for server balancer
+23:23:32.402 - [Server balancer] Inicializando serviços de sincronização
+23:23:32.456 - [Server balancer] Inicializando comunicação no endereço: tcp://localhost:6030
+23:23:32.461 - [Server balancer] Servidor registrado: server1 em localhost:6000
+23:23:32.462 - [Server balancer] Servidor registrado: server2 em localhost:6000
+23:23:32.462 - [Server balancer] Servidor registrado: server3 em localhost:6000
+23:23:32.462 - [Server balancer] Serviços de sincronização inicializados
+23:23:32.462 - [Server balancer] Inicializando como balanceador de carga
+23:23:32.467 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server1', address='localhost', port=5555, active=true}
+23:23:32.467 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server2', address='localhost', port=5556, active=true}
+23:23:32.467 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server3', address='localhost', port=5557, active=true}
+23:23:32.468 - [Server balancer] Iniciando serviços...
+23:23:32.468 - [Server balancer] Iniciando serviços de sincronização
+23:23:32.468 - [Server balancer] Iniciando serviço de sincronização de relógios
+23:23:32.471 - [Server balancer] TimeManager inicializado com offset: 0
+23:23:32.474 - [Server balancer] Iniciando verificação periódica de coordenador
+23:23:32.474 - [Server balancer] Iniciando agendamento de sincronização de relógios
+23:23:32.475 - [Server balancer] Comunicação entre servidores iniciada em tcp://localhost:6030
+23:23:32.475 - [Server balancer] Serviço de sincronização de relógios iniciado
+23:23:32.476 - [Server balancer] Serviços de sincronização iniciados
+23:23:32.476 - [Server balancer] Balanceador de carga iniciado
+23:23:32.478 - [Server balancer] Todos os serviços iniciados com sucesso
+23:23:32.503 - [Server balancer] Tentando bind em tcp://localhost:6030 (tentativa 1 de 5)
+23:23:32.505 - [Server balancer] Bind bem-sucedido em tcp://localhost:6030
+23:23:32.506 - [Server balancer] Receptor de mensagens de sincronização iniciado com sucesso
+23:23:32.508 - [Server balancer] Serviço de balanceamento iniciado em: tcp://localhost:5000
+23:24:02.505 - [Server balancer] Mensagem enviada para server3: {"fromServer":"balancer","logicalTime":1,"action":"IS_COORDINATOR_REQUEST"}
+23:24:05.518 - ERROR - [Server balancer][L:06/05/2025 23:24:05][P:] Erro ao verificar se server3 é coordenador
+java.lang.Exception: Timeout ao aguardar resposta do servidor server3
+	at com.redesocial.clock.ServerCommunication.sendMessageWithResponse(ServerCommunication.java:398)
+	at com.redesocial.clock.BullyElection.findCurrentCoordinator(BullyElection.java:129)
+	at com.redesocial.clock.BullyElection.checkCoordinator(BullyElection.java:95)
+	at com.redesocial.clock.BullyElection.lambda$startCoordinatorCheck$0(BullyElection.java:64)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+23:24:05.541 - [Server balancer] Mensagem enviada para server2: {"fromServer":"balancer","logicalTime":2,"action":"IS_COORDINATOR_REQUEST"}
+23:24:08.555 - ERROR - [Server balancer][L:06/05/2025 23:24:08][P:] Erro ao verificar se server2 é coordenador
+java.lang.Exception: Timeout ao aguardar resposta do servidor server2
+	at com.redesocial.clock.ServerCommunication.sendMessageWithResponse(ServerCommunication.java:398)
+	at com.redesocial.clock.BullyElection.findCurrentCoordinator(BullyElection.java:129)
+	at com.redesocial.clock.BullyElection.checkCoordinator(BullyElection.java:95)
+	at com.redesocial.clock.BullyElection.lambda$startCoordinatorCheck$0(BullyElection.java:64)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+23:24:08.590 - [Server balancer] Mensagem enviada para server1: {"fromServer":"balancer","logicalTime":3,"action":"IS_COORDINATOR_REQUEST"}
+23:24:11.615 - ERROR - [Server balancer][L:06/05/2025 23:24:11][P:] Erro ao verificar se server1 é coordenador
+java.lang.Exception: Timeout ao aguardar resposta do servidor server1
+	at com.redesocial.clock.ServerCommunication.sendMessageWithResponse(ServerCommunication.java:398)
+	at com.redesocial.clock.BullyElection.findCurrentCoordinator(BullyElection.java:129)
+	at com.redesocial.clock.BullyElection.checkCoordinator(BullyElection.java:95)
+	at com.redesocial.clock.BullyElection.lambda$startCoordinatorCheck$0(BullyElection.java:64)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+23:24:11.617 - [Server balancer] Nenhum coordenador encontrado. Iniciando eleição.
+23:24:11.617 - [Server balancer] Iniciando eleição de coordenador
+23:24:11.620 - [Server balancer] Enviada mensagem de eleição para server3
+23:24:11.620 - [Server balancer] Enviada mensagem de eleição para server2
+23:24:11.621 - [Server balancer] Enviada mensagem de eleição para server1
+23:24:11.648 - [Server balancer] Mensagem enviada para server3: {"fromServer":"balancer","logicalTime":4,"action":"ELECTION"}
+23:24:11.651 - [Server balancer] Mensagem enviada para server2: {"fromServer":"balancer","logicalTime":5,"action":"ELECTION"}
+23:24:11.651 - [Server balancer] Mensagem enviada para server1: {"fromServer":"balancer","logicalTime":6,"action":"ELECTION"}
+23:24:16.630 - [Server balancer] Este servidor foi eleito como coordenador
+23:24:16.634 - [Server balancer] Enviada mensagem de coordenador para server3
+23:24:16.635 - [Server balancer] Enviada mensagem de coordenador para server2
+23:24:16.636 - [Server balancer] Enviada mensagem de coordenador para server1
+23:24:16.677 - [Server balancer] Mensagem enviada para server2: {"logicalTime":8,"action":"COORDINATOR","coordinatorId":"balancer"}
+23:24:16.680 - [Server balancer] Mensagem enviada para server3: {"logicalTime":7,"action":"COORDINATOR","coordinatorId":"balancer"}
+23:24:16.680 - [Server balancer] Mensagem enviada para server1: {"logicalTime":9,"action":"COORDINATOR","coordinatorId":"balancer"}
+23:24:32.478 - [Server balancer] Enviado heartbeat como coordenador para 2 servidores
+23:24:32.491 - [Server balancer] Iniciando sincronização de relógios como coordenador
+23:24:32.495 - [Server balancer] Iniciando sincronização com 3 servidores
+23:24:32.499 - [Server balancer] Mensagem enviada para server3: {"logicalTime":10,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"balancer"}
+23:24:32.508 - [Server balancer] Mensagem enviada para server1: {"logicalTime":12,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"balancer"}
+23:24:32.509 - [Server balancer] Mensagem enviada para server2: {"logicalTime":11,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"balancer"}
+23:24:32.537 - [Server balancer] Mensagem enviada para server1: {"coordinator":"balancer","logicalTime":14,"action":"TIME_REQUEST","timestamp":1746584672496}
+23:24:32.538 - [Server balancer] Mensagem enviada para server3: {"coordinator":"balancer","logicalTime":13,"action":"TIME_REQUEST","timestamp":1746584672496}
+23:24:32.539 - [Server balancer] Mensagem enviada para server2: {"coordinator":"balancer","logicalTime":15,"action":"TIME_REQUEST","timestamp":1746584672496}
+23:24:35.514 - [Server balancer] Calculando ajuste de relógio com 1 amostras
+23:24:35.517 - [Server balancer] Offset médio calculado: 0ms
+23:24:35.522 - [Server balancer] Relógio atualizado: offset anterior=0, novo offset=0, ajuste=0ms
+23:25:02.481 - [Server balancer] Enviado heartbeat como coordenador para 2 servidores
+23:25:02.512 - [Server balancer] Mensagem enviada para server2: {"logicalTime":16,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"balancer"}
+23:25:02.516 - [Server balancer] Mensagem enviada para server1: {"logicalTime":18,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"balancer"}
+23:25:02.516 - [Server balancer] Mensagem enviada para server3: {"logicalTime":17,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"balancer"}
+23:25:32.478 - [Server balancer] Iniciando sincronização de relógios como coordenador
+23:25:32.482 - [Server balancer] Enviado heartbeat como coordenador para 2 servidores
+23:25:32.483 - [Server balancer] Iniciando sincronização com 3 servidores
+23:25:32.512 - [Server balancer] Mensagem enviada para server1: {"logicalTime":21,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"balancer"}
+23:25:32.516 - [Server balancer] Mensagem enviada para server2: {"logicalTime":20,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"balancer"}
+23:25:32.517 - [Server balancer] Mensagem enviada para server3: {"logicalTime":19,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"balancer"}
+23:25:32.518 - [Server balancer] Mensagem enviada para server1: {"coordinator":"balancer","logicalTime":24,"action":"TIME_REQUEST","timestamp":1746584732483}
+23:25:32.519 - [Server balancer] Mensagem enviada para server3: {"coordinator":"balancer","logicalTime":22,"action":"TIME_REQUEST","timestamp":1746584732483}
+23:25:32.519 - [Server balancer] Mensagem enviada para server2: {"coordinator":"balancer","logicalTime":23,"action":"TIME_REQUEST","timestamp":1746584732483}
+23:25:35.489 - [Server balancer] Calculando ajuste de relógio com 1 amostras
+23:25:35.492 - [Server balancer] Offset médio calculado: 0ms
+23:25:35.492 - [Server balancer] Relógio atualizado: offset anterior=0, novo offset=0, ajuste=0ms
+23:25:48.227 - [Server balancer] Desligando servidor...
+23:25:48.230 - [Server balancer] Parando serviços de sincronização
+23:25:48.230 - [Server balancer] Parando serviço de sincronização de relógios
+23:25:48.751 - [Server balancer] Comunicação entre servidores parada
+23:25:48.752 - [Server balancer] Serviço de sincronização de relógios parado
+23:25:48.752 - [Server balancer] Serviços de sincronização parados
+23:25:48.752 - [Server balancer] Serviço de balanceamento parado
+23:25:48.753 - Logger closing
+19:40:30.810 - [Server balancer] EventLogger initialized for server balancer
+19:40:30.813 - [Server balancer] Inicializando serviços de sincronização
+19:40:30.921 - [Server balancer] Inicializando comunicação no endereço: tcp://localhost:6030
+19:40:30.928 - [Server balancer] Servidor registrado: server1 em localhost:6038
+19:40:30.928 - [Server balancer] Servidor registrado: server1 em localhost:6038
+19:40:30.929 - [Server balancer] Servidor registrado: server2 em localhost:6040
+19:40:30.929 - [Server balancer] Servidor registrado: server2 em localhost:6040
+19:40:30.929 - [Server balancer] Servidor registrado: server3 em localhost:6042
+19:40:30.930 - [Server balancer] Servidor registrado: server3 em localhost:6042
+19:40:30.930 - [Server balancer] Serviços de sincronização inicializados
+19:40:30.930 - [Server balancer] Inicializando como balanceador de carga
+19:40:30.936 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server1', address='localhost', port=6038, active=true}
+19:40:30.937 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server2', address='localhost', port=6040, active=true}
+19:40:30.937 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server3', address='localhost', port=6042, active=true}
+19:40:30.939 - [Server balancer] Iniciando serviços...
+19:40:30.939 - [Server balancer] Iniciando serviços de sincronização
+19:40:30.940 - [Server balancer] Iniciando serviço de sincronização de relógios
+19:40:30.943 - [Server balancer] TimeManager inicializado com offset: 0
+19:40:30.989 - [Server balancer] Tentando bind em tcp://localhost:6030 (tentativa 1 de 5)
+19:40:30.997 - [Server balancer] Bind bem-sucedido em tcp://localhost:6030
+19:40:30.998 - [Server balancer] Receptor de mensagens de sincronização iniciado com sucesso
+19:40:31.955 - [Server balancer] Comunicação entre servidores iniciada em tcp://localhost:6030
+19:40:31.956 - [Server balancer] Serviço de sincronização de relógios iniciado
+19:40:31.957 - [Server balancer] Serviços de sincronização iniciados
+19:40:31.961 - [Server balancer] Balanceador de carga iniciado
+19:40:31.963 - [Server balancer] Todos os serviços iniciados com sucesso
+19:40:31.990 - [Server balancer] Serviço de balanceamento iniciado em: tcp://localhost:5000
+19:40:33.960 - [Server balancer] Iniciando verificação periódica de coordenador
+19:40:34.966 - [Server balancer] Iniciando agendamento de sincronização de relógios
+19:40:35.969 - [Server balancer] Iniciando serviço de descoberta de servidores
+19:40:40.980 - [Server balancer] Verificando status dos servidores...
+19:40:41.054 - [Server balancer] Mensagem enviada para server3: {"fromServer":"balancer","logicalTime":1,"action":"SERVER_PING"}
+19:40:44.108 - [Server balancer] Mensagem enviada para server2: {"fromServer":"balancer","logicalTime":2,"action":"SERVER_PING"}
+19:40:44.182 - [Server balancer] Resposta recebida de server2: {"success":true,"logicalTime":3,"isActive":true,"serverId":"server2"}
+19:40:44.213 - [Server balancer] Mensagem enviada para server1: {"fromServer":"balancer","logicalTime":5,"action":"SERVER_PING"}
+19:40:44.266 - [Server balancer] Resposta recebida de server1: {"success":true,"logicalTime":6,"isActive":true,"serverId":"server1"}
+19:40:44.274 - [Server balancer] Verificação completa: 2 servidores ativos, 1 servidores inativos
+19:40:44.278 - [Server balancer] Anunciando presença do servidor balancer na rede
+19:40:44.289 - [Server balancer] Ignorando tentativa de conexão para server3 (última tentativa: 214ms atrás)
+19:40:44.341 - [Server balancer] Mensagem enviada para server2: {"syncAddress":"tcp://localhost:6030","logicalTime":8,"serverAddress":"localhost","action":"SERVER_ANNOUNCEMENT","serverPort":5000,"serverId":"balancer"}
+19:40:44.342 - [Server balancer] Mensagem enviada para server1: {"syncAddress":"tcp://localhost:6030","logicalTime":9,"serverAddress":"localhost","action":"SERVER_ANNOUNCEMENT","serverPort":5000,"serverId":"balancer"}
+19:40:44.363 - [Server balancer] Resposta recebida de server2: {"success":true,"logicalTime":9}
+19:40:44.365 - [Server balancer] Resposta recebida de server1: {"success":true,"logicalTime":10}
+19:40:45.288 - [Server balancer] Mensagem recebida: {"fromServer":"server1","logicalTime":11,"action":"SERVER_PING"}
+19:40:45.289 - [Server balancer] Recebido ping do servidor server1
+19:40:48.344 - [Server balancer] Mensagem recebida: {"syncAddress":"tcp://localhost:6038","logicalTime":20,"serverAddress":"localhost","action":"SERVER_ANNOUNCEMENT","serverPort":5555,"serverId":"server1"}
+19:40:48.361 - [Server balancer] Recebido anúncio do servidor server1 em localhost:5555 (sync: tcp://localhost:6038)
+19:40:48.362 - [Server balancer] Informações atualizadas para servidor: server1
+19:40:50.544 - [Server balancer] Mensagem recebida: {"fromServer":"server2","logicalTime":24,"action":"SERVER_PING"}
+19:40:50.545 - [Server balancer] Recebido ping do servidor server2
+19:40:53.529 - [Server balancer] Mensagem recebida: {"syncAddress":"tcp://localhost:6040","logicalTime":33,"serverAddress":"localhost","action":"SERVER_ANNOUNCEMENT","serverPort":5556,"serverId":"server2"}
+19:40:53.530 - [Server balancer] Recebido anúncio do servidor server2 em localhost:5556 (sync: tcp://localhost:6040)
+19:40:53.531 - [Server balancer] Informações atualizadas para servidor: server2
+19:40:55.505 - [Server balancer] Mensagem recebida: {"fromServer":"server3","logicalTime":36,"action":"SERVER_PING"}
+19:40:55.506 - [Server balancer] Recebido ping do servidor server3
+19:40:55.984 - [Server balancer] Verificando status dos servidores...
+19:40:56.033 - [Server balancer] Mensagem enviada para server3: {"fromServer":"balancer","logicalTime":38,"action":"SERVER_PING"}
+19:40:56.042 - [Server balancer] Servidor server3 agora está ativo
+19:40:56.043 - [Server balancer] Resposta recebida de server3: {"success":true,"logicalTime":45,"isActive":true,"serverId":"server3"}
+19:40:56.090 - [Server balancer] Mensagem enviada para server2: {"fromServer":"balancer","logicalTime":47,"action":"SERVER_PING"}
+19:40:56.097 - [Server balancer] Resposta recebida de server2: {"success":true,"logicalTime":48,"isActive":true,"serverId":"server2"}
+19:40:56.139 - [Server balancer] Mensagem enviada para server1: {"fromServer":"balancer","logicalTime":50,"action":"SERVER_PING"}
+19:40:56.147 - [Server balancer] Resposta recebida de server1: {"success":true,"logicalTime":51,"isActive":true,"serverId":"server1"}
+19:40:56.151 - [Server balancer] Verificação completa: 3 servidores ativos, 0 servidores inativos
+19:40:58.510 - [Server balancer] Mensagem recebida: {"syncAddress":"tcp://localhost:6042","logicalTime":46,"serverAddress":"localhost","action":"SERVER_ANNOUNCEMENT","serverPort":5557,"serverId":"server3"}
+19:40:58.517 - [Server balancer] Recebido anúncio do servidor server3 em localhost:5557 (sync: tcp://localhost:6042)
+19:40:58.517 - [Server balancer] Informações atualizadas para servidor: server3
+19:41:00.287 - [Server balancer] Mensagem recebida: {"fromServer":"server1","logicalTime":53,"action":"SERVER_PING"}
+19:41:00.287 - [Server balancer] Recebido ping do servidor server1
+19:41:03.992 - [Server balancer] Mensagem enviada para server3: {"fromServer":"balancer","logicalTime":55,"action":"IS_COORDINATOR_REQUEST"}
+19:41:03.996 - [Server balancer] Resposta recebida de server3: {"isCoordinator":false,"success":true,"logicalTime":58}
+19:41:04.020 - [Server balancer] Mensagem enviada para server2: {"fromServer":"balancer","logicalTime":60,"action":"IS_COORDINATOR_REQUEST"}
+19:41:04.025 - [Server balancer] Resposta recebida de server2: {"isCoordinator":false,"success":true,"logicalTime":61}
+19:41:04.053 - [Server balancer] Mensagem enviada para server1: {"fromServer":"balancer","logicalTime":63,"action":"IS_COORDINATOR_REQUEST"}
+19:41:04.057 - [Server balancer] Resposta recebida de server1: {"isCoordinator":false,"success":true,"logicalTime":64}
+19:41:04.059 - [Server balancer] Nenhum coordenador encontrado. Iniciando eleição.
+19:41:04.059 - [Server balancer] Iniciando eleição de coordenador
+19:41:04.061 - [Server balancer] Enviada mensagem de eleição para server3
+19:41:04.062 - [Server balancer] Enviada mensagem de eleição para server2
+19:41:04.062 - [Server balancer] Enviada mensagem de eleição para server1
+19:41:04.100 - [Server balancer] Mensagem enviada para server3: {"fromServer":"balancer","logicalTime":66,"action":"ELECTION"}
+19:41:04.103 - [Server balancer] Mensagem enviada para server1: {"fromServer":"balancer","logicalTime":68,"action":"ELECTION"}
+19:41:04.104 - [Server balancer] Mensagem enviada para server2: {"fromServer":"balancer","logicalTime":67,"action":"ELECTION"}
+19:41:04.112 - [Server balancer] Resposta recebida de server3: {"success":true,"logicalTime":70}
+19:41:04.114 - [Server balancer] Resposta recebida de server2: {"success":true,"logicalTime":70}
+19:41:04.115 - [Server balancer] Resposta recebida de server1: {"success":true,"logicalTime":72}
+19:41:04.215 - [Server balancer] Mensagem recebida: {"fromServer":"server3","logicalTime":68,"action":"ELECTION_RESPONSE"}
+19:41:04.218 - [Server balancer] Recebida resposta de eleição de server3
+19:41:04.218 - [Server balancer] Mensagem recebida: {"logicalTime":69,"action":"COORDINATOR","coordinatorId":"server3"}
+19:41:04.219 - [Server balancer] Recebida mensagem de coordenador de server3
+19:41:04.219 - [Server balancer] Este servidor agora reconhece server3 como coordenador
+19:41:04.223 - [Server balancer] Mensagem recebida: {"fromServer":"server1","logicalTime":70,"action":"ELECTION_RESPONSE"}
+19:41:04.227 - [Server balancer] Recebida resposta de eleição de server1
+19:41:04.232 - [Server balancer] Mensagem recebida: {"fromServer":"server2","logicalTime":69,"action":"ELECTION_RESPONSE"}
+19:41:04.233 - [Server balancer] Recebida resposta de eleição de server2
+19:41:04.320 - [Server balancer] Mensagem recebida: {"logicalTime":79,"action":"COORDINATOR","coordinatorId":"server3"}
+19:41:04.321 - [Server balancer] Recebida mensagem de coordenador de server3
+19:41:04.322 - [Server balancer] Este servidor agora reconhece server3 como coordenador
+19:41:04.334 - [Server balancer] Mensagem recebida: {"logicalTime":86,"action":"COORDINATOR","coordinatorId":"server3"}
+19:41:04.335 - [Server balancer] Recebida mensagem de coordenador de server3
+19:41:04.335 - [Server balancer] Este servidor agora reconhece server3 como coordenador
+19:41:04.384 - [Server balancer] Mensagem recebida: {"logicalTime":99,"action":"COORDINATOR","coordinatorId":"server3"}
+19:41:04.384 - [Server balancer] Recebida mensagem de coordenador de server3
+19:41:04.385 - [Server balancer] Este servidor agora reconhece server3 como coordenador
+19:41:05.508 - [Server balancer] Mensagem recebida: {"fromServer":"server2","logicalTime":105,"action":"SERVER_PING"}
+19:41:05.508 - [Server balancer] Recebido ping do servidor server2
+19:41:08.262 - [Server balancer] Mensagem recebida: {"fromServer":"server1","logicalTime":113,"action":"IS_COORDINATOR_REQUEST"}
+19:41:09.078 - [Server balancer] Recebida resposta de servidor com ID maior. Aguardando nova eleição.
+19:41:10.477 - [Server balancer] Mensagem recebida: {"fromServer":"server3","logicalTime":121,"action":"SERVER_PING"}
+19:41:10.478 - [Server balancer] Recebido ping do servidor server3
+19:41:10.978 - [Server balancer] Verificando status dos servidores...
+19:41:11.000 - [Server balancer] Mensagem enviada para server3: {"fromServer":"balancer","logicalTime":123,"action":"SERVER_PING"}
+19:41:11.005 - [Server balancer] Resposta recebida de server3: {"success":true,"logicalTime":130,"isActive":true,"serverId":"server3"}
+19:41:11.030 - [Server balancer] Mensagem enviada para server2: {"fromServer":"balancer","logicalTime":132,"action":"SERVER_PING"}
+19:41:11.034 - [Server balancer] Resposta recebida de server2: {"success":true,"logicalTime":133,"isActive":true,"serverId":"server2"}
+19:41:11.060 - [Server balancer] Mensagem enviada para server1: {"fromServer":"balancer","logicalTime":135,"action":"SERVER_PING"}
+19:41:11.064 - [Server balancer] Resposta recebida de server1: {"success":true,"logicalTime":136,"isActive":true,"serverId":"server1"}
+19:41:11.066 - [Server balancer] Verificação completa: 3 servidores ativos, 0 servidores inativos
+19:41:13.484 - [Server balancer] Mensagem recebida: {"fromServer":"server2","logicalTime":134,"action":"IS_COORDINATOR_REQUEST"}
+19:41:15.287 - [Server balancer] Mensagem recebida: {"fromServer":"server1","logicalTime":137,"action":"SERVER_PING"}
+19:41:15.288 - [Server balancer] Recebido ping do servidor server1
+19:41:18.478 - [Server balancer] Mensagem recebida: {"logicalTime":146,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"server3"}
+19:41:20.503 - [Server balancer] Mensagem recebida: {"fromServer":"server2","logicalTime":150,"action":"SERVER_PING"}
+19:41:20.504 - [Server balancer] Recebido ping do servidor server2
+19:41:25.475 - [Server balancer] Mensagem recebida: {"fromServer":"server3","logicalTime":155,"action":"SERVER_PING"}
+19:41:25.476 - [Server balancer] Recebido ping do servidor server3
+19:41:25.984 - [Server balancer] Verificando status dos servidores...
+19:41:26.011 - [Server balancer] Mensagem enviada para server3: {"fromServer":"balancer","logicalTime":157,"action":"SERVER_PING"}
+19:41:26.020 - [Server balancer] Resposta recebida de server3: {"success":true,"logicalTime":164,"isActive":true,"serverId":"server3"}
+19:41:26.049 - [Server balancer] Mensagem enviada para server2: {"fromServer":"balancer","logicalTime":166,"action":"SERVER_PING"}
+19:41:26.055 - [Server balancer] Resposta recebida de server2: {"success":true,"logicalTime":167,"isActive":true,"serverId":"server2"}
+19:41:26.087 - [Server balancer] Mensagem enviada para server1: {"fromServer":"balancer","logicalTime":169,"action":"SERVER_PING"}
+19:41:26.093 - [Server balancer] Resposta recebida de server1: {"success":true,"logicalTime":170,"isActive":true,"serverId":"server1"}
+19:41:26.096 - [Server balancer] Verificação completa: 3 servidores ativos, 0 servidores inativos
+19:41:30.289 - [Server balancer] Mensagem recebida: {"fromServer":"server1","logicalTime":171,"action":"SERVER_PING"}
+19:41:30.290 - [Server balancer] Recebido ping do servidor server1
+19:41:33.997 - [Server balancer] Mensagem enviada para server3: {"fromServer":"balancer","logicalTime":173,"action":"IS_COORDINATOR_REQUEST"}
+19:41:34.003 - [Server balancer] Resposta recebida de server3: {"isCoordinator":true,"success":true,"logicalTime":176}
+19:41:34.006 - [Server balancer] Verificando se o coordenador server3 está ativo
+19:41:34.029 - [Server balancer] Mensagem enviada para server3: {"fromServer":"balancer","logicalTime":178,"action":"COORDINATOR_PING"}
+19:41:34.034 - [Server balancer] Resposta recebida de server3: {"isAlive":true,"success":true,"logicalTime":179,"coordinatorId":"server3"}
+19:41:34.037 - [Server balancer] Coordenador server3 respondeu ao ping
+19:41:35.514 - [Server balancer] Mensagem recebida: {"fromServer":"server2","logicalTime":179,"action":"SERVER_PING"}
+19:41:35.517 - [Server balancer] Recebido ping do servidor server2
+19:41:38.263 - [Server balancer] Mensagem recebida: {"fromServer":"server1","logicalTime":188,"action":"IS_COORDINATOR_REQUEST"}
+19:41:40.480 - [Server balancer] Mensagem recebida: {"fromServer":"server3","logicalTime":196,"action":"SERVER_PING"}
+19:41:40.481 - [Server balancer] Recebido ping do servidor server3
+19:41:40.984 - [Server balancer] Verificando status dos servidores...
+19:41:41.006 - [Server balancer] Mensagem enviada para server3: {"fromServer":"balancer","logicalTime":198,"action":"SERVER_PING"}
+19:41:41.010 - [Server balancer] Resposta recebida de server3: {"success":true,"logicalTime":205,"isActive":true,"serverId":"server3"}
+19:41:41.033 - [Server balancer] Mensagem enviada para server2: {"fromServer":"balancer","logicalTime":207,"action":"SERVER_PING"}
+19:41:41.038 - [Server balancer] Resposta recebida de server2: {"success":true,"logicalTime":208,"isActive":true,"serverId":"server2"}
+19:41:41.058 - [Server balancer] Mensagem enviada para server1: {"fromServer":"balancer","logicalTime":210,"action":"SERVER_PING"}
+19:41:41.063 - [Server balancer] Resposta recebida de server1: {"success":true,"logicalTime":211,"isActive":true,"serverId":"server1"}
+19:41:41.065 - [Server balancer] Verificação completa: 3 servidores ativos, 0 servidores inativos
+19:41:43.488 - [Server balancer] Mensagem recebida: {"fromServer":"server2","logicalTime":209,"action":"IS_COORDINATOR_REQUEST"}
+19:41:45.289 - [Server balancer] Mensagem recebida: {"fromServer":"server1","logicalTime":212,"action":"SERVER_PING"}
+19:41:45.290 - [Server balancer] Recebido ping do servidor server1
+19:41:48.477 - [Server balancer] Mensagem recebida: {"logicalTime":222,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"server3"}
+19:41:49.487 - [Server balancer] Mensagem recebida: {"coordinator":"server3","logicalTime":229,"action":"TIME_REQUEST","timestamp":1746657709443}
+19:41:49.488 - [Server balancer] Recebida solicitação de tempo do coordenador server3. Diferença: 45ms
+19:41:49.531 - [Server balancer] Mensagem enviada para server3: {"requestTimestamp":1746657709443,"responseTimestamp":1746657709488,"logicalTime":231,"action":"TIME_RESPONSE","timeDifference":45,"serverId":"balancer"}
+19:41:49.542 - [Server balancer] Resposta recebida de server3: {"success":true,"logicalTime":235}
+19:41:50.522 - [Server balancer] Mensagem recebida: {"fromServer":"server2","logicalTime":238,"action":"SERVER_PING"}
+19:41:50.523 - [Server balancer] Recebido ping do servidor server2
+19:41:52.498 - [Server balancer] Mensagem recebida: {"coordinator":"server3","logicalTime":243,"action":"CLOCK_ADJUSTMENT","adjustment":-10}
+19:41:52.499 - [Server balancer] Recebido ajuste de relógio do coordenador server3: -10ms
+19:41:52.505 - [Server balancer] Relógio atualizado: offset anterior=0, novo offset=-10, ajuste=-10ms
+19:41:52.506 - [Server balancer] Relógio ajustado: novo offset = -10ms
+19:41:55.485 - [Server balancer] Mensagem recebida: {"fromServer":"server3","logicalTime":251,"action":"SERVER_PING"}
+19:41:55.485 - [Server balancer] Recebido ping do servidor server3
+19:41:55.972 - [Server balancer] Verificando status dos servidores...
+19:41:55.995 - [Server balancer] Mensagem enviada para server3: {"fromServer":"balancer","logicalTime":253,"action":"SERVER_PING"}
+19:41:56.002 - [Server balancer] Resposta recebida de server3: {"success":true,"logicalTime":260,"isActive":true,"serverId":"server3"}
+19:41:56.038 - [Server balancer] Mensagem enviada para server2: {"fromServer":"balancer","logicalTime":262,"action":"SERVER_PING"}
+19:41:56.043 - [Server balancer] Resposta recebida de server2: {"success":true,"logicalTime":263,"isActive":true,"serverId":"server2"}
+19:41:56.067 - [Server balancer] Mensagem enviada para server1: {"fromServer":"balancer","logicalTime":265,"action":"SERVER_PING"}
+19:41:56.074 - [Server balancer] Resposta recebida de server1: {"success":true,"logicalTime":266,"isActive":true,"serverId":"server1"}
+19:41:56.077 - [Server balancer] Verificação completa: 3 servidores ativos, 0 servidores inativos
+19:42:00.272 - [Server balancer] Mensagem recebida: {"fromServer":"server1","logicalTime":267,"action":"SERVER_PING"}
+19:42:00.273 - [Server balancer] Recebido ping do servidor server1
+19:42:04.001 - [Server balancer] Mensagem enviada para server3: {"fromServer":"balancer","logicalTime":269,"action":"IS_COORDINATOR_REQUEST"}
+19:42:04.005 - [Server balancer] Resposta recebida de server3: {"isCoordinator":true,"success":true,"logicalTime":272}
+19:42:04.008 - [Server balancer] Verificando se o coordenador server3 está ativo
+19:42:04.028 - [Server balancer] Mensagem enviada para server3: {"fromServer":"balancer","logicalTime":274,"action":"COORDINATOR_PING"}
+19:42:04.034 - [Server balancer] Resposta recebida de server3: {"isAlive":true,"success":true,"logicalTime":275,"coordinatorId":"server3"}
+19:42:04.036 - [Server balancer] Coordenador server3 respondeu ao ping
+19:42:05.509 - [Server balancer] Mensagem recebida: {"fromServer":"server2","logicalTime":275,"action":"SERVER_PING"}
+19:42:05.510 - [Server balancer] Recebido ping do servidor server2
+19:42:08.253 - [Server balancer] Mensagem recebida: {"fromServer":"server1","logicalTime":284,"action":"IS_COORDINATOR_REQUEST"}
+19:42:10.470 - [Server balancer] Mensagem recebida: {"fromServer":"server3","logicalTime":292,"action":"SERVER_PING"}
+19:42:10.471 - [Server balancer] Recebido ping do servidor server3
+19:42:10.979 - [Server balancer] Verificando status dos servidores...
+19:42:10.999 - [Server balancer] Mensagem enviada para server3: {"fromServer":"balancer","logicalTime":294,"action":"SERVER_PING"}
+19:42:11.003 - [Server balancer] Resposta recebida de server3: {"success":true,"logicalTime":301,"isActive":true,"serverId":"server3"}
+19:42:11.025 - [Server balancer] Mensagem enviada para server2: {"fromServer":"balancer","logicalTime":303,"action":"SERVER_PING"}
+19:42:11.030 - [Server balancer] Resposta recebida de server2: {"success":true,"logicalTime":304,"isActive":true,"serverId":"server2"}
+19:42:11.052 - [Server balancer] Mensagem enviada para server1: {"fromServer":"balancer","logicalTime":306,"action":"SERVER_PING"}
+19:42:11.056 - [Server balancer] Resposta recebida de server1: {"success":true,"logicalTime":307,"isActive":true,"serverId":"server1"}
+19:42:11.058 - [Server balancer] Verificação completa: 3 servidores ativos, 0 servidores inativos
+23:07:51.869 - [Server balancer] EventLogger initialized for server balancer
+23:07:51.869 - [Server balancer] Inicializando serviços de sincronização
+23:07:51.923 - [Server balancer] Inicializando comunicação no endereço: tcp://localhost:6030
+23:07:51.928 - [Server balancer] Servidor registrado: server1 em localhost:6038
+23:07:51.929 - [Server balancer] Servidor registrado: server1 em localhost:6038
+23:07:51.929 - [Server balancer] Servidor registrado: server2 em localhost:6040
+23:07:51.929 - [Server balancer] Servidor registrado: server2 em localhost:6040
+23:07:51.929 - [Server balancer] Servidor registrado: server3 em localhost:6042
+23:07:51.929 - [Server balancer] Servidor registrado: server3 em localhost:6042
+23:07:51.929 - [Server balancer] Serviços de sincronização inicializados
+23:07:51.930 - [Server balancer] Inicializando como balanceador de carga
+23:07:51.934 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server1', address='localhost', port=6038, active=true}
+23:07:51.935 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server2', address='localhost', port=6040, active=true}
+23:07:51.935 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server3', address='localhost', port=6042, active=true}
+23:07:51.936 - [Server balancer] Iniciando serviços...
+23:07:51.936 - [Server balancer] Iniciando serviços de sincronização
+23:07:51.936 - [Server balancer] Iniciando serviço de sincronização de relógios
+23:07:51.940 - [Server balancer] TimeManager inicializado com offset: 0
+23:07:51.968 - [Server balancer] Tentando bind em tcp://localhost:6030 (tentativa 1 de 5)
+23:07:51.976 - [Server balancer] Bind bem-sucedido em tcp://localhost:6030
+23:07:51.976 - [Server balancer] Receptor de mensagens de sincronização iniciado com sucesso
+23:07:52.958 - [Server balancer] Comunicação entre servidores iniciada em tcp://localhost:6030
+23:07:52.959 - [Server balancer] Serviço de sincronização de relógios iniciado
+23:07:52.960 - [Server balancer] Serviços de sincronização iniciados
+23:07:52.961 - [Server balancer] Balanceador de carga iniciado
+23:07:52.963 - [Server balancer] Todos os serviços iniciados com sucesso
+23:07:52.983 - [Server balancer] Serviço de balanceamento iniciado em: tcp://localhost:5000
+19:17:21.271 - [Server balancer] EventLogger initialized for server balancer
+19:17:21.271 - [Server balancer] Inicializando serviços de sincronização
+19:17:21.314 - [Server balancer] Inicializando comunicação no endereço: tcp://localhost:6030
+19:17:21.317 - [Server balancer] Inicializando comunicação no endereço: tcp://localhost:6030
+19:17:21.320 - [Server balancer] Servidor registrado: server1 em localhost:6038
+19:17:21.320 - [Server balancer] Servidor registrado: server1 em localhost:6038
+19:17:21.321 - [Server balancer] Servidor registrado: server2 em localhost:6040
+19:17:21.321 - [Server balancer] Servidor registrado: server2 em localhost:6040
+19:17:21.321 - [Server balancer] Servidor registrado: server3 em localhost:6042
+19:17:21.321 - [Server balancer] Servidor registrado: server3 em localhost:6042
+19:17:21.321 - [Server balancer] Serviços de sincronização inicializados
+19:17:21.321 - [Server balancer] Inicializando como balanceador de carga
+19:17:21.325 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server1', address='localhost', port=6038, active=true}
+19:17:21.325 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server2', address='localhost', port=6040, active=true}
+19:17:21.325 - [Server balancer] Servidor adicionado ao balanceador: ServerInfo{serverId='server3', address='localhost', port=6042, active=true}
+19:17:21.326 - [Server balancer] Iniciando serviços...
+19:17:21.326 - [Server balancer] Iniciando serviços de sincronização
+19:17:21.326 - [Server balancer] Iniciando serviço de sincronização de relógios
+19:17:21.328 - [Server balancer] TimeManager inicializado com offset: 0
+19:17:21.352 - [Server balancer] Tentando bind em tcp://localhost:6030 (tentativa 1 de 5)
+19:17:21.357 - [Server balancer] Bind bem-sucedido em tcp://localhost:6030
+19:17:21.358 - [Server balancer] Receptor de mensagens de sincronização iniciado com sucesso
+19:17:22.333 - [Server balancer] Comunicação entre servidores iniciada em tcp://localhost:6030
+19:17:22.334 - [Server balancer] Serviço de sincronização de relógios iniciado
+19:17:22.334 - [Server balancer] Iniciando serviço de replicação de dados
+19:17:22.335 - [Server balancer] Serviços de sincronização iniciados
+19:17:22.336 - [Server balancer] Balanceador de carga iniciado
+19:17:22.337 - [Server balancer] Todos os serviços iniciados com sucesso
+19:17:22.349 - [Server balancer] Serviço de balanceamento iniciado em: tcp://localhost:5000
+19:17:24.344 - [Server balancer] Iniciando verificação periódica de coordenador
+19:17:25.351 - [Server balancer] Iniciando agendamento de sincronização de relógios

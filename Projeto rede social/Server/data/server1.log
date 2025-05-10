@@ -1,0 +1,23 @@
+2025-04-25 17:40:55.818 - [Server server1][L:25/04/2025 17:40:55][P:] EventLogger initialized for server server1
+2025-04-25 17:40:55.821 - [Server server1][L:25/04/2025 17:40:55][P:] Arquivo de usuários não encontrado, iniciando com repositório vazio
+2025-04-25 17:40:55.824 - [Server server1][L:25/04/2025 17:40:55][P:] Iniciando serviços...
+2025-04-25 17:40:55.826 - [Server server1][L:25/04/2025 17:40:55][P:] Todos os serviços iniciados com sucesso
+2025-04-25 17:45:43.577 - [Server server1][L:25/04/2025 17:45:43][P:] Requisição recebida: {"action": "register", "username": "samir", "password": "123"}
+2025-04-25 17:45:43.627 - [Server server1][L:25/04/2025 17:45:43][P:] Salvos 1 usuários no arquivo
+2025-04-25 17:45:43.627 - [Server server1][L:25/04/2025 17:45:43][P:] Usuário adicionado: samir
+2025-04-25 17:45:43.629 - [Server server1][L:25/04/2025 17:45:43][P:] Usuário registrado com sucesso: samir
+2025-04-25 17:51:04.931 - [Server server1][L:25/04/2025 17:51:04][P:] Desligando servidor...
+2025-04-25 17:51:04.932 - [Server server1][L:25/04/2025 17:51:04][P:] Serviço de usuários parado
+2025-04-25 17:51:04.932 - Logger closing
+2025-04-25 17:52:19.716 - [Server server1][L:25/04/2025 17:52:19][P:] EventLogger initialized for server server1
+2025-04-25 17:52:19.732 - [Server server1][L:25/04/2025 17:52:19][P:] Carregados 1 usuários do arquivo
+2025-04-25 17:52:19.736 - [Server server1][L:25/04/2025 17:52:19][P:] Iniciando serviços...
+2025-04-25 17:52:19.737 - [Server server1][L:25/04/2025 17:52:19][P:] Todos os serviços iniciados com sucesso
+2025-04-25 17:52:39.608 - [Server server1][L:25/04/2025 17:52:39][P:] Requisição recebida: {"action": "register", "username": "samir", "password": "123"}
+2025-04-25 17:52:57.606 - [Server server1][L:25/04/2025 17:52:57][P:] Requisição recebida: {"action": "register", "username": "sa", "password": "123"}
+2025-04-25 17:52:57.617 - [Server server1][L:25/04/2025 17:52:57][P:] Salvos 2 usuários no arquivo
+2025-04-25 17:52:57.618 - [Server server1][L:25/04/2025 17:52:57][P:] Usuário adicionado: sa
+2025-04-25 17:52:57.618 - [Server server1][L:25/04/2025 17:52:57][P:] Usuário registrado com sucesso: sa
+2025-04-25 17:53:13.217 - [Server server1][L:25/04/2025 17:53:13][P:] Desligando servidor...
+2025-04-25 17:53:13.218 - [Server server1][L:25/04/2025 17:53:13][P:] Serviço de usuários parado
+2025-04-25 17:53:13.218 - Logger closing
