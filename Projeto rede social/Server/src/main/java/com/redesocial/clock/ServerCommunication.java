@@ -292,12 +292,6 @@ public class ServerCommunication {
         }
     }
 
-    /**
-     * Processa uma mensagem recebida
-     *
-     * @param messageStr String com a mensagem JSON
-     * @return String com a resposta
-     */
     private String processMessage(String messageStr) {
         try {
             JSONObject message = new JSONObject(messageStr);
@@ -315,7 +309,75 @@ public class ServerCommunication {
 
             // Processa a ação
             switch (action) {
-                // [Mantenha os outros casos do switch...]
+                case "TIME_REQUEST":
+                    // Solicitação de tempo do coordenador
+                    String coordinatorId = message.getString("coordinator");
+                    long coordinatorTimestamp = message.getLong("timestamp");
+                    berkeleyAlgorithm.processTimeRequest(coordinatorId, coordinatorTimestamp);
+                    break;
+
+                case "TIME_RESPONSE":
+                    // Resposta de tempo de um servidor
+                    String respondingServerId = message.getString("serverId");
+                    long timeDifference = message.getLong("timeDifference");
+                    berkeleyAlgorithm.processTimeResponse(respondingServerId, timeDifference);
+                    break;
+
+                case "CLOCK_ADJUSTMENT":
+                    // Ajuste de relógio enviado pelo coordenador
+                    String adjCoordinatorId = message.getString("coordinator");
+                    long adjustment = message.getLong("adjustment");
+                    berkeleyAlgorithm.applyClockAdjustment(adjCoordinatorId, adjustment);
+                    break;
+
+                case "ELECTION":
+                    // Mensagem de início de eleição
+                    String electionStarterId = message.getString("fromServer");
+                    bullyElection.processElectionMessage(electionStarterId);
+                    break;
+
+                case "ELECTION_RESPONSE":
+                    // Resposta à mensagem de eleição
+                    String electionResponderId = message.getString("fromServer");
+                    bullyElection.processElectionResponse(electionResponderId);
+                    break;
+
+                case "COORDINATOR":
+                    // Anúncio de novo coordenador
+                    String newCoordinatorId = message.getString("coordinatorId");
+                    bullyElection.processCoordinatorMessage(newCoordinatorId);
+                    break;
+
+                case "COORDINATOR_HEARTBEAT":
+                    // Heartbeat do coordenador
+                    // Apenas confirma recebimento
+                    break;
+
+                case "COORDINATOR_PING":
+                    // Ping para verificar se o coordenador está ativo
+                    // Apenas confirma recebimento
+                    break;
+
+                case "SERVER_ANNOUNCEMENT":
+                    // Anúncio de servidor na rede
+                    String serverId = message.getString("serverId");
+                    String serverAddress = message.getString("serverAddress");
+                    int serverPort = message.getInt("serverPort");
+                    String syncAddress = message.getString("syncAddress");
+                    discoveryService.processServerAnnouncement(serverId, serverAddress, serverPort, syncAddress);
+                    break;
+
+                case "SERVER_PING":
+                    // Ping para verificar se o servidor está ativo
+                    String fromServerId = message.getString("fromServer");
+                    JSONObject pingResponse = discoveryService.processServerPing(fromServerId);
+                    response = pingResponse;
+                    break;
+
+                case "IS_COORDINATOR_REQUEST":
+                    // Resposta à verificação de coordenador
+                    response.put("isCoordinator", serverState.isCoordinator());
+                    break;
 
                 case "DATA_REPLICATION":
                     // Replicação de dados

@@ -23,7 +23,7 @@ public class UserService {
     public UserService(UserRepository userRepository, EventLogger logger, String address, int port) {
         this.userRepository = userRepository;
         this.logger = logger;
-        this.bindAddress = "tcp://" + address + ":" + port;
+        this.bindAddress = "tcp://" + address + ":" + (port + 300);
         this.executor = Executors.newSingleThreadExecutor();
         this.running = new AtomicBoolean(false);
     }
@@ -46,6 +46,8 @@ public class UserService {
             // Socket REP para responder às requisições
             ZMQ.Socket socket = context.createSocket(SocketType.REP);
             socket.bind(bindAddress);
+
+            logger.log("Serviço de usuários iniciado em " + bindAddress);
 
             while (running.get()) {
                 // Aguarda uma requisição
@@ -75,7 +77,13 @@ public class UserService {
 
             switch (action) {
                 case "register":
+                case "USER_REGISTER":
                     return registerUser(
+                            request.getString("username"),
+                            request.getString("password")
+                    );
+                case "USER_LOGIN":
+                    return loginUser(
                             request.getString("username"),
                             request.getString("password")
                     );
@@ -115,6 +123,30 @@ public class UserService {
             }
         } catch (Exception e) {
             logger.logError("Erro ao registrar usuário", e);
+            return createErrorResponse("Erro interno: " + e.getMessage());
+        }
+    }
+
+    private String loginUser(String username, String password) {
+        // Verificar se o usuário existe
+        User user = userRepository.getUserByUsername(username);
+        if (user == null) {
+            return createErrorResponse("Usuário não encontrado");
+        }
+
+        // Verificar se a senha está correta
+        if (!user.getPassword().equals(password)) {
+            return createErrorResponse("Senha incorreta");
+        }
+
+        try {
+            JSONObject response = new JSONObject();
+            response.put("success", true);
+            response.put("message", "Login realizado com sucesso");
+            response.put("username", user.getUsername());
+            return response.toString();
+        } catch (Exception e) {
+            logger.logError("Erro ao processar login", e);
             return createErrorResponse("Erro interno: " + e.getMessage());
         }
     }
