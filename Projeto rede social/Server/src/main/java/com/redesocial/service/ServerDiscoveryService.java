@@ -89,6 +89,9 @@ public class ServerDiscoveryService {
         announcement.put("serverPort", serverState.getServerPort());
         announcement.put("syncAddress", communication.getSyncBindAddress());
 
+        // Adicionar também a porta do serviço para o balanceador
+        announcement.put("servicePort", serverState.getServerPort());
+
         // Envia anúncio para todos os servidores conhecidos
         for (Map.Entry<String, ServerState.ServerInfo> entry : serverState.getKnownServers().entrySet()) {
             String serverId = entry.getKey();

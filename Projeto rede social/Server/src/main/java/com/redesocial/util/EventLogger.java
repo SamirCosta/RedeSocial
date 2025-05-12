@@ -5,6 +5,9 @@ import com.redesocial.model.ServerState;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Event logger that includes server information and timestamps in log messages
@@ -12,6 +15,11 @@ import java.time.format.DateTimeFormatter;
 public class EventLogger {
     private final Logger logger;
     private final ServerState serverState;
+    private static final Set<String> FILTERED_PATTERNS = new HashSet<>(Arrays.asList(
+            "heartbeat", "ping", "verificação", "sincronização", "checking", "IS_COORDINATOR_REQUEST", "\"success\":true"
+            ,"CLOCK_ADJUSTMENT", "Recebido ajuste de relógio", "TIME_REQUEST", "TIME_RESPONSE", "Relógio ajustado", "SERVER_ANNOUNCEMENT"
+            , "ELECTION", "coordenador", "Relógio atualizado", "COORDINATOR", "Offset", "ajuste de relógio"
+    ));
 
     /**
      * Create a new event logger for the specified server
@@ -34,6 +42,12 @@ public class EventLogger {
      */
     public void log(String message) {
         try {
+            for (String pattern : FILTERED_PATTERNS) {
+                if (message.toLowerCase().contains(pattern.toLowerCase())) {
+                    // Log filtrado - apenas retorna sem logar
+                    return;
+                }
+            }
             // Get timestamps
 //            long logicalTime = TimeManager.getInstance().getLogicalTime();
 //            long physicalTime = TimeManager.getInstance().getAdjustedPhysicalTime();

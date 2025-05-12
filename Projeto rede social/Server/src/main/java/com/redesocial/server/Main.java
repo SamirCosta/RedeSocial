@@ -73,15 +73,32 @@ public class Main {
         // Cria o balanceador de carga
         loadBalancer = new LoadBalancer(logger);
 
-        // Adiciona os servidores conhecidos ao balanceador
+        // Adiciona os servidores conhecidos ao balanceador com as portas de SERVIÇO corretas
         String[] seedServers = config.getSeedServers();
         for (String serverAddress : seedServers) {
             String[] parts = serverAddress.split(":");
             if (parts.length == 3) {
                 String serverId = parts[0];
                 String address = parts[1];
-                int port = Integer.parseInt(parts[2]);
+                // Correção: usar a porta de serviço correta em vez da porta de sincronização
+                int port;
+
+                // Mapeamento correto de servidores para portas de serviço
+                if (serverId.equals("server1")) {
+                    port = 5555;
+                } else if (serverId.equals("server2")) {
+                    port = 5556;
+                } else if (serverId.equals("server3")) {
+                    port = 5557;
+                } else {
+                    // Usa a porta do arquivo de configuração, mas isso pode não ser ideal
+                    port = Integer.parseInt(parts[2]);
+                    logger.log("Aviso: Usando porta de sincronização para o servidor " + serverId +
+                            ". Isso pode causar problemas de comunicação!");
+                }
+
                 loadBalancer.addServer(serverId, address, port);
+                logger.log("Adicionado servidor " + serverId + " com porta de serviço " + port);
             }
         }
 

@@ -19,6 +19,17 @@ public class LoadBalancer {
 
     // Adiciona um servidor à lista de servidores disponíveis
     public synchronized void addServer(String serverId, String address, int port) {
+        // Verifica se o servidor já existe
+        for (ServerInfo server : servers) {
+            if (server.getServerId().equals(serverId)) {
+                // Atualizar informações se o servidor já existir
+                server.setActive(true);
+                logger.log("Servidor atualizado no balanceador: " + server);
+                return;
+            }
+        }
+
+        // Adiciona novo servidor se não existir
         ServerInfo serverInfo = new ServerInfo(serverId, address, port, true);
         servers.add(serverInfo);
         logger.log("Servidor adicionado ao balanceador: " + serverInfo);
@@ -112,5 +123,10 @@ public class LoadBalancer {
                     ", active=" + active +
                     '}';
         }
+    }
+
+    // Método para depuração - lista todos os servidores
+    public synchronized List<ServerInfo> getAllServers() {
+        return new ArrayList<>(servers);
     }
 }

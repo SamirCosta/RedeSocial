@@ -87,7 +87,8 @@ public class BalancerService {
                 // Determina qual porta usar com base na ação da requisição
                 int portOffset = getPortOffsetForRequest(requestStr);
 
-                // Conecta-se ao servidor selecionado com o offset de porta apropriado
+                // CORREÇÃO: Usa a porta do serviço (server.port) em vez da porta de sincronização
+                // Conecta-se diretamente à porta do serviço + offset apropriado
                 String serverAddress = "tcp://" + server.getAddress() + ":" + (server.getPort() + portOffset);
                 try (ZContext serverContext = new ZContext()) {
                     ZMQ.Socket serverSocket = serverContext.createSocket(SocketType.REQ);
@@ -214,6 +215,22 @@ public class BalancerService {
                     String serverId = message.getString("serverId");
                     String serverAddress = message.getString("serverAddress");
                     int serverPort = message.getInt("serverPort");
+
+                    // CORREÇÃO: Armazenar a porta de serviço correta em vez da porta de sincronização
+                    // Verificando se a informação do servidor já inclui a porta de serviço
+                    if (message.has("servicePort")) {
+                        serverPort = message.getInt("servicePort");
+                    } else {
+                        // Se não tiver, usamos uma lógica para identificar a porta de serviço
+                        // Assumimos que as portas de serviço são 5555, 5556, 5557, etc.
+                        if (serverId.equals("server1")) {
+                            serverPort = 5555;
+                        } else if (serverId.equals("server2")) {
+                            serverPort = 5556;
+                        } else if (serverId.equals("server3")) {
+                            serverPort = 5557;
+                        }
+                    }
 
                     // Adiciona ou atualiza o servidor no balanceador
                     loadBalancer.addServer(serverId, serverAddress, serverPort);
