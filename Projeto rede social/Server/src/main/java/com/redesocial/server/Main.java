@@ -133,21 +133,12 @@ public class Main {
         int serviceBasePort = Integer.parseInt(config.getProperty("user.service.port", "5555"));
 
         // Inicializa os serviços
+        logger.log("-------------------ARQUIVO DE DATA: " + userDataPath);
         userService = new UserService(userRepository, logger, config.getServerAddress(), serviceBasePort);
         postService = new PostService(postRepository, userRepository, logger, config.getServerAddress(), serviceBasePort);
         messageService = new MessageService(messageRepository, userRepository, logger, config.getServerAddress(), serviceBasePort);
         followService = new FollowService(userRepository, logger, config.getServerAddress(), serviceBasePort);
 
-        // Inicializa o ReplicationManager e associa ao DataReplicationService
-        DataReplicationService replicationService = syncManager.getReplicationService();
-        ReplicationManager.getInstance().initialize(
-                serverState,
-                logger,
-                userRepository,
-                postRepository,
-                messageRepository,
-                replicationService
-        );
     }
 
     private void createDirectoryIfNotExists(String dirPath) {
@@ -168,6 +159,26 @@ public class Main {
             balancerService.start();
             logger.log("Balanceador de carga iniciado");
         } else {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+
+            DataReplicationService replicationService = syncManager.getReplicationService();
+            logger.log("DEBUG: replicationService é null? " + (replicationService == null));
+
+            logger.log("DEBUG: Verificando se ServerCommunication tem replicationService...");
+
+            if (replicationService != null) {
+                ReplicationManager.getInstance().initialize(
+                        serverState, logger, userRepository, postRepository,
+                        messageRepository, replicationService
+                );
+            } else {
+                logger.logError("ERRO: DataReplicationService é null!", null);
+            }
+
             // Inicia todos os serviços no servidor de aplicação
             userService.start();
             postService.start();

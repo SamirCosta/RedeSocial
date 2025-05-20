@@ -48,8 +48,8 @@ public class ServerCommunication {
      * Construtor para comunicação entre servidores
      *
      * @param serverState Estado do servidor
-     * @param logger Logger de eventos
-     * @param syncPort Porta para comunicação de sincronização
+     * @param logger      Logger de eventos
+     * @param syncPort    Porta para comunicação de sincronização
      */
     public ServerCommunication(ServerState serverState, EventLogger logger, int syncPort) {
         this.serverState = serverState;
@@ -74,12 +74,14 @@ public class ServerCommunication {
 
     public void setReplicationService(DataReplicationService replicationService) {
         this.replicationService = replicationService;
+        logger.log("DataReplicationService DEFINIDO no ServerCommunication: " +
+                (replicationService != null ? "SUCCESS" : "FAILED"));
     }
 
     /**
      * Inicializa os componentes de sincronização
      *
-     * @param syncIntervalMs Intervalo de sincronização de relógios
+     * @param syncIntervalMs             Intervalo de sincronização de relógios
      * @param coordinatorCheckIntervalMs Intervalo de verificação de coordenador
      */
     public void initializeSynchronization(long syncIntervalMs, long coordinatorCheckIntervalMs) {
@@ -194,7 +196,7 @@ public class ServerCommunication {
      * Encerra um ExecutorService de forma segura
      *
      * @param executor O executor a ser encerrado
-     * @param name Nome do executor para log
+     * @param name     Nome do executor para log
      */
     private void shutdownExecutorService(ExecutorService executor, String name) {
         try {
@@ -380,20 +382,24 @@ public class ServerCommunication {
                     break;
 
                 case "DATA_REPLICATION":
-                    // Replicação de dados
-                    String sourceServerId = message.getString("sourceServerId");
-                    String eventType = message.getString("eventType");
-                    String entityId = message.getString("entityId");
-                    long replicationTimestamp = message.getLong("timestamp");
-                    JSONObject eventData = message.getJSONObject("data");
+                    logger.log("=== RECEBIDA MENSAGEM DE REPLICAÇÃO ===");
+                    logger.log("ReplicationService disponível: " + (replicationService != null));
 
-                    // Processa a replicação através do DataReplicationService
                     if (replicationService != null) {
+                        String sourceServerId = message.getString("sourceServerId");
+                        String eventType = message.getString("eventType");
+                        String entityId = message.getString("entityId");
+                        long replicationTimestamp = message.getLong("timestamp");
+                        JSONObject eventData = message.getJSONObject("data");
+
+                        logger.log("Processando replicação: " + eventType + " de " + sourceServerId);
+
                         JSONObject replicationResponse = replicationService.processReplicationEvent(
                                 sourceServerId, eventType, entityId, replicationTimestamp, eventData);
 
                         response = replicationResponse;
                     } else {
+                        logger.logError("ERRO: DataReplicationService é NULL no ServerCommunication!", null);
                         response.put("success", false);
                         response.put("error", "Serviço de replicação não disponível");
                     }
@@ -423,7 +429,7 @@ public class ServerCommunication {
      * Envia uma mensagem para um servidor específico
      *
      * @param serverId ID do servidor destinatário
-     * @param message Mensagem a ser enviada
+     * @param message  Mensagem a ser enviada
      */
     public void sendMessage(String serverId, String message) {
         senderExecutor.submit(() -> {
@@ -508,7 +514,7 @@ public class ServerCommunication {
      * Envia uma mensagem para um servidor específico e aguarda a resposta
      *
      * @param serverId ID do servidor destinatário
-     * @param message Mensagem a ser enviada
+     * @param message  Mensagem a ser enviada
      * @return Resposta do servidor
      * @throws Exception Se ocorrer erro na comunicação
      */

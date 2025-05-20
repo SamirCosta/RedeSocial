@@ -64,6 +64,10 @@ public class ServerState implements Serializable {
         knownServers.remove(serverId);
     }
 
+    public boolean isBalancer(String serverId) {
+        return serverId.equals("balancer") || serverId.startsWith("balancer");
+    }
+
     public void setServerActive(String serverId, boolean active) {
         ServerInfo server = knownServers.get(serverId);
         if (server != null) {
@@ -79,6 +83,17 @@ public class ServerState implements Serializable {
             }
         }
         return Collections.unmodifiableSet(activeServers);
+    }
+
+    public Set<String> getActiveDataServers() {
+        Set<String> dataServers = ConcurrentHashMap.newKeySet();
+        for (Map.Entry<String, ServerInfo> entry : knownServers.entrySet()) {
+            String serverId = entry.getKey();
+            if (entry.getValue().isActive() && !isBalancer(serverId)) {
+                dataServers.add(serverId);
+            }
+        }
+        return Collections.unmodifiableSet(dataServers);
     }
 
     public Map<String, ServerInfo> getKnownServers() {

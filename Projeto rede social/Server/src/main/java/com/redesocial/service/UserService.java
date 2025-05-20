@@ -76,7 +76,6 @@ public class UserService {
             String action = request.getString("action");
 
             switch (action) {
-                case "register":
                 case "USER_REGISTER":
                     return registerUser(
                             request.getString("username"),

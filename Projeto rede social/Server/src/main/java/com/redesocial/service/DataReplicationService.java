@@ -105,8 +105,8 @@ public class DataReplicationService {
 
         logger.log("Replicando evento " + event.getType() + " para outros servidores");
 
-        // Envia para todos os servidores ativos, exceto este
-        for (String serverId : serverState.getActiveServerIds()) {
+        // Envia para todos os servidores ativos, exceto este E exceto balanceadores
+        for (String serverId : serverState.getActiveDataServers()) {
             if (!serverId.equals(serverState.getServerId())) {
                 communication.sendMessage(serverId, replicationMessage.toString());
             }

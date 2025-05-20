@@ -44,7 +44,13 @@ class SocialNetworkClient:
             "password": password
         }
         
-        return self._send_request(request)
+        response = self._send_request(request)
+    
+        if response.get("success") and response.get("replication_complete") is False:
+            print("Aguardando replicação de dados...")
+            time.sleep(2)
+        
+        return response
     
     def login(self, username, password):
         """

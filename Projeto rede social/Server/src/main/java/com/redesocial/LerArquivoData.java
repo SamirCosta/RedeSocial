@@ -7,7 +7,9 @@ import java.util.concurrent.ConcurrentHashMap;
 public class LerArquivoData {
     public static void main(String[] args) {
         // Caminho para o arquivo .data
-        String dataFilePath = "C:/Users/samir/OneDrive/Área de Trabalho/Projeto rede social/Server/server1_data/users/users_server1.data";
+//        String dataFilePath = "C:/Users/samir/git/RedeSocial/Projeto rede social/Server/server1_data/users/users_server1.data";
+//        String dataFilePath = "C:/Users/samir/git/RedeSocial/Projeto rede social/Server/server2_data/users/users_server2.data";
+        String dataFilePath = "C:/Users/samir/git/RedeSocial/Projeto rede social/Server/server3_data/users/users_server3.data";
 
         File file = new File(dataFilePath);
         if (!file.exists()) {

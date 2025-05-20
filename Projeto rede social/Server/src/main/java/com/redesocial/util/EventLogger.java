@@ -89,10 +89,18 @@ public class EventLogger {
                     message);
 
             // Log the formatted error message with exception
-            logger.logError(formattedMessage, exception);
+            if (exception != null) {
+                logger.logError(formattedMessage, exception);
+            } else {
+                logger.log("ERROR: " + formattedMessage);
+            }
         } catch (Exception e) {
             // Fallback if TimeManager is not available yet
-            logger.logError("[Server " + serverState.getServerId() + "] " + message, exception);
+            if (exception != null) {
+                logger.logError("[Server " + serverState.getServerId() + "] " + message, exception);
+            } else {
+                logger.log("ERROR: [Server " + serverState.getServerId() + "] " + message);
+            }
         }
     }
 

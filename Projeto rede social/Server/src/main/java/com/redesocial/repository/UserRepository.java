@@ -2,6 +2,7 @@ package com.redesocial.repository;
 
 import com.redesocial.model.User;
 import com.redesocial.util.EventLogger;
+import com.redesocial.util.Logger;
 
 import java.io.*;
 import java.util.Map;
@@ -41,11 +42,13 @@ public class UserRepository {
 
     private void saveUsers() {
         try {
+            logger.log("******************FILE PATH " + dataFilePath);
             // Garante que o diretório existe
             File file = new File(dataFilePath);
             file.getParentFile().mkdirs();
 
             try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
+            logger.log("****************** ESCREVEU");
                 oos.writeObject(usersByUsername);
             }
 
@@ -58,6 +61,7 @@ public class UserRepository {
     public synchronized boolean addUser(User user) {
         // Verifica se o username já existe (case insensitive)
         if (usersByUsername.containsKey(user.getUsername().toLowerCase())) {
+            logger.log("************* JA EXISTE");
             return false;
         }
 

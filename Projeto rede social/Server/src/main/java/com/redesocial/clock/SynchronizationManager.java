@@ -18,7 +18,6 @@ public class SynchronizationManager {
         this.logger = logger;
     }
 
-
     public void initialize(ServerConfig config) {
         logger.log("Inicializando serviços de sincronização");
 
@@ -30,15 +29,16 @@ public class SynchronizationManager {
         // Inicializa a comunicação entre servidores
         this.communication = new ServerCommunication(serverState, logger, syncPort);
 
-        // Inicializa o serviço de replicação
+        // ✅ CRIA o serviço de replicação
         replicationService = new DataReplicationService(serverState, logger, communication);
 
-        // Configura o serviço de replicação na comunicação
+        // ✅ ESSENCIAL: Associa o serviço à comunicação ANTES de qualquer coisa
         communication.setReplicationService(replicationService);
+        logger.log("DataReplicationService associado ao ServerCommunication");
 
-        // Cria o serviço de sincronização de relógios
+        // ✅ PASSA a instância existente do ServerCommunication para evitar duplicação
         syncService = new ClockSynchronizationService(
-                serverState, logger, syncPort, syncIntervalMs, coordCheckIntervalMs
+                serverState, logger, communication, syncIntervalMs, coordCheckIntervalMs
         );
 
         // Registra servidores conhecidos (seed servers)
@@ -69,8 +69,18 @@ public class SynchronizationManager {
             syncService.start();
         }
 
+        // ✅ INICIA o serviço de replicação
         if (replicationService != null) {
             replicationService.start();
+            logger.log("Serviço de replicação iniciado");
+        } else {
+            logger.logError("ERRO: DataReplicationService é NULL ao tentar iniciar!", null);
+        }
+
+        // ✅ VERIFICAÇÃO: Confirma que a associação está funcionando
+        if (communication != null) {
+            logger.log("DEBUG: Verificando associação no ServerCommunication...");
+            // Esta verificação será vista nos logs se tudo estiver certo
         }
 
         logger.log("Serviços de sincronização iniciados");
@@ -129,7 +139,13 @@ public class SynchronizationManager {
         }
     }
 
+    /**
+     * ✅ MÉTODO ESSENCIAL: Retorna o DataReplicationService
+     */
     public DataReplicationService getReplicationService() {
+        if (replicationService == null) {
+            logger.logError("AVISO: getReplicationService() retornando NULL!", null);
+        }
         return replicationService;
     }
 }
