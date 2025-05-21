@@ -3,9 +3,6 @@ package com.redesocial.model;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-/**
- * Representa uma publicação de usuário
- */
 public class Post implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -15,13 +12,6 @@ public class Post implements Serializable {
     private final LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    /**
-     * Construtor para uma nova publicação
-     *
-     * @param id ID único da publicação
-     * @param username Nome do usuário que criou a publicação
-     * @param content Conteúdo da publicação
-     */
     public Post(String id, String username, String content) {
         this.id = id;
         this.username = username;

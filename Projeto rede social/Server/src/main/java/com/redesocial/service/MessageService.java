@@ -18,9 +18,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-/**
- * Serviço para gerenciar mensagens privadas entre usuários
- */
 public class MessageService {
     private final MessageRepository messageRepository;
     private final UserRepository userRepository;
@@ -29,9 +26,6 @@ public class MessageService {
     private final ExecutorService executor;
     private final AtomicBoolean running;
 
-    /**
-     * Construtor do serviço de mensagens
-     */
     public MessageService(MessageRepository messageRepository, UserRepository userRepository,
                           EventLogger logger, String address, int port) {
         this.messageRepository = messageRepository;
@@ -42,18 +36,12 @@ public class MessageService {
         this.running = new AtomicBoolean(false);
     }
 
-    /**
-     * Inicia o serviço de mensagens
-     */
     public void start() {
         if (running.compareAndSet(false, true)) {
             executor.submit(this::runService);
         }
     }
 
-    /**
-     * Para o serviço de mensagens
-     */
     public void stop() {
         if (running.compareAndSet(true, false)) {
             executor.shutdown();
@@ -61,12 +49,9 @@ public class MessageService {
         }
     }
 
-    /**
-     * Loop principal do serviço
-     */
     private void runService() {
         try (ZContext context = new ZContext()) {
-            // Socket REP para responder às requisições
+
             ZMQ.Socket socket = context.createSocket(SocketType.REP);
             socket.bind(bindAddress);
 
@@ -82,10 +67,8 @@ public class MessageService {
                 String requestStr = new String(request, StandardCharsets.UTF_8);
                 logger.log("Requisição recebida no serviço de mensagens: " + requestStr);
 
-                // Processa a requisição
                 String response = processRequest(requestStr);
 
-                // Envia a resposta
                 socket.send(response.getBytes(StandardCharsets.UTF_8));
             }
         } catch (Exception e) {
@@ -93,9 +76,6 @@ public class MessageService {
         }
     }
 
-    /**
-     * Processa uma requisição recebida
-     */
     private String processRequest(String requestStr) {
         try {
             JSONObject request = new JSONObject(requestStr);
@@ -131,11 +111,8 @@ public class MessageService {
         }
     }
 
-    /**
-     * Envia uma mensagem para outro usuário
-     */
     private String sendMessage(String senderUsername, String receiverUsername, String content) {
-        // Verificar se os usuários existem
+
         User sender = userRepository.getUserByUsername(senderUsername);
         User receiver = userRepository.getUserByUsername(receiverUsername);
 
@@ -148,10 +125,8 @@ public class MessageService {
         }
 
         try {
-            // Gerar ID único para a mensagem
             String messageId = UUID.randomUUID().toString();
 
-            // Criar e salvar a mensagem
             Message message = new Message(messageId, senderUsername, receiverUsername, content);
             boolean success = messageRepository.addMessage(message);
 
@@ -159,7 +134,6 @@ public class MessageService {
                 logger.log("Mensagem enviada com sucesso: " + messageId + " de " +
                         senderUsername + " para " + receiverUsername);
 
-                // Registrar para replicação
                 ReplicationManager.getInstance().registerMessageSent(message);
 
                 JSONObject response = new JSONObject();
@@ -177,35 +151,29 @@ public class MessageService {
         }
     }
 
-    /**
-     * Marca uma mensagem como lida
-     */
     private String markMessageAsRead(String messageId, String username) {
-        // Verificar se a mensagem existe
+
         Message message = messageRepository.getMessageById(messageId);
         if (message == null) {
             return createErrorResponse("Mensagem não encontrada");
         }
 
-        // Verificar se o usuário é o destinatário da mensagem
         if (!message.getReceiverUsername().equals(username)) {
             return createErrorResponse("Apenas o destinatário pode marcar a mensagem como lida");
         }
 
-        // Verificar se a mensagem já está marcada como lida
         if (message.isRead()) {
             return createErrorResponse("A mensagem já está marcada como lida");
         }
 
         try {
-            // Marcar a mensagem como lida
+
             message.markAsRead();
             boolean success = messageRepository.updateMessage(message);
 
             if (success) {
                 logger.log("Mensagem marcada como lida: " + messageId);
 
-                // Registrar para replicação
                 ReplicationManager.getInstance().registerMessageSent(message);
 
                 JSONObject response = new JSONObject();
@@ -223,11 +191,7 @@ public class MessageService {
         }
     }
 
-    /**
-     * Obtém o histórico de conversas entre dois usuários
-     */
     private String getConversation(String username1, String username2) {
-        // Verificar se os usuários existem
         User user1 = userRepository.getUserByUsername(username1);
         User user2 = userRepository.getUserByUsername(username2);
 
@@ -236,7 +200,7 @@ public class MessageService {
         }
 
         try {
-            // Buscar o histórico de conversas
+
             List<Message> conversation = messageRepository.getConversationHistory(username1, username2);
 
             JSONObject response = new JSONObject();
@@ -267,18 +231,14 @@ public class MessageService {
         }
     }
 
-    /**
-     * Obtém as mensagens não lidas para um usuário
-     */
     private String getUnreadMessages(String username) {
-        // Verificar se o usuário existe
+
         User user = userRepository.getUserByUsername(username);
         if (user == null) {
             return createErrorResponse("Usuário não encontrado");
         }
 
         try {
-            // Buscar mensagens não lidas
             List<Message> unreadMessages = messageRepository.getUnreadMessagesByReceiver(username);
 
             JSONObject response = new JSONObject();
@@ -304,9 +264,6 @@ public class MessageService {
         }
     }
 
-    /**
-     * Cria uma resposta de erro
-     */
     private String createErrorResponse(String message) {
         JSONObject response = new JSONObject();
         response.put("success", false);

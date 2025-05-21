@@ -15,9 +15,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-/**
- * Serviço para gerenciar relações de seguidores entre usuários
- */
 public class FollowService {
     private final UserRepository userRepository;
     private final EventLogger logger;
@@ -25,9 +22,6 @@ public class FollowService {
     private final ExecutorService executor;
     private final AtomicBoolean running;
 
-    /**
-     * Construtor do serviço de seguidores
-     */
     public FollowService(UserRepository userRepository, EventLogger logger, String address, int port) {
         this.userRepository = userRepository;
         this.logger = logger;
@@ -36,18 +30,12 @@ public class FollowService {
         this.running = new AtomicBoolean(false);
     }
 
-    /**
-     * Inicia o serviço de seguidores
-     */
     public void start() {
         if (running.compareAndSet(false, true)) {
             executor.submit(this::runService);
         }
     }
 
-    /**
-     * Para o serviço de seguidores
-     */
     public void stop() {
         if (running.compareAndSet(true, false)) {
             executor.shutdown();
@@ -55,19 +43,14 @@ public class FollowService {
         }
     }
 
-    /**
-     * Loop principal do serviço
-     */
     private void runService() {
         try (ZContext context = new ZContext()) {
-            // Socket REP para responder às requisições
             ZMQ.Socket socket = context.createSocket(SocketType.REP);
             socket.bind(bindAddress);
 
             logger.log("Serviço de seguidores iniciado em " + bindAddress);
 
             while (running.get()) {
-                // Aguarda uma requisição
                 byte[] request = socket.recv();
                 if (request == null) {
                     continue;
@@ -76,10 +59,8 @@ public class FollowService {
                 String requestStr = new String(request, StandardCharsets.UTF_8);
                 logger.log("Requisição recebida no serviço de seguidores: " + requestStr);
 
-                // Processa a requisição
                 String response = processRequest(requestStr);
 
-                // Envia a resposta
                 socket.send(response.getBytes(StandardCharsets.UTF_8));
             }
         } catch (Exception e) {
@@ -87,9 +68,6 @@ public class FollowService {
         }
     }
 
-    /**
-     * Processa uma requisição recebida
-     */
     private String processRequest(String requestStr) {
         try {
             JSONObject request = new JSONObject(requestStr);
@@ -123,11 +101,8 @@ public class FollowService {
         }
     }
 
-    /**
-     * Segue um usuário
-     */
     private String followUser(String followerUsername, String followedUsername) {
-        // Verificar se os usuários existem
+
         User follower = userRepository.getUserByUsername(followerUsername);
         User followed = userRepository.getUserByUsername(followedUsername);
 
@@ -139,29 +114,25 @@ public class FollowService {
             return createErrorResponse("Usuário a ser seguido não encontrado");
         }
 
-        // Verificar se já está seguindo
         if (follower.getFollowing().contains(followedUsername)) {
             return createErrorResponse("Já está seguindo este usuário");
         }
 
-        // Verificar se não está tentando seguir a si mesmo
         if (followerUsername.equals(followedUsername)) {
             return createErrorResponse("Não é possível seguir a si mesmo");
         }
 
         try {
-            // Adicionar relação de seguidor
+
             follower.addFollowing(followedUsername);
             followed.addFollower(followerUsername);
 
-            // Atualizar os usuários
             boolean success1 = userRepository.updateUser(follower);
             boolean success2 = userRepository.updateUser(followed);
 
             if (success1 && success2) {
                 logger.log("Usuário " + followerUsername + " agora está seguindo " + followedUsername);
 
-                // Registrar para replicação
                 ReplicationManager.getInstance().registerFollowAdded(followedUsername, followerUsername);
 
                 JSONObject response = new JSONObject();
@@ -177,11 +148,8 @@ public class FollowService {
         }
     }
 
-    /**
-     * Deixa de seguir um usuário
-     */
     private String unfollowUser(String followerUsername, String followedUsername) {
-        // Verificar se os usuários existem
+
         User follower = userRepository.getUserByUsername(followerUsername);
         User followed = userRepository.getUserByUsername(followedUsername);
 
@@ -193,24 +161,21 @@ public class FollowService {
             return createErrorResponse("Usuário a ser deixado de seguir não encontrado");
         }
 
-        // Verificar se está seguindo
         if (!follower.getFollowing().contains(followedUsername)) {
             return createErrorResponse("Não está seguindo este usuário");
         }
 
         try {
-            // Remover relação de seguidor
+
             follower.removeFollowing(followedUsername);
             followed.removeFollower(followerUsername);
 
-            // Atualizar os usuários
             boolean success1 = userRepository.updateUser(follower);
             boolean success2 = userRepository.updateUser(followed);
 
             if (success1 && success2) {
                 logger.log("Usuário " + followerUsername + " deixou de seguir " + followedUsername);
 
-                // Registrar para replicação
                 ReplicationManager.getInstance().registerFollowRemoved(followedUsername, followerUsername);
 
                 JSONObject response = new JSONObject();
@@ -226,18 +191,15 @@ public class FollowService {
         }
     }
 
-    /**
-     * Obtém os seguidores de um usuário
-     */
     private String getFollowers(String username) {
-        // Verificar se o usuário existe
+
         User user = userRepository.getUserByUsername(username);
         if (user == null) {
             return createErrorResponse("Usuário não encontrado");
         }
 
         try {
-            // Buscar seguidores
+
             Set<String> followers = user.getFollowers();
 
             JSONObject response = new JSONObject();
@@ -258,18 +220,15 @@ public class FollowService {
         }
     }
 
-    /**
-     * Obtém os usuários que um usuário está seguindo
-     */
     private String getFollowing(String username) {
-        // Verificar se o usuário existe
+
         User user = userRepository.getUserByUsername(username);
         if (user == null) {
             return createErrorResponse("Usuário não encontrado");
         }
 
         try {
-            // Buscar usuários seguidos
+
             Set<String> following = user.getFollowing();
 
             JSONObject response = new JSONObject();
@@ -290,9 +249,6 @@ public class FollowService {
         }
     }
 
-    /**
-     * Cria uma resposta de erro
-     */
     private String createErrorResponse(String message) {
         JSONObject response = new JSONObject();
         response.put("success", false);

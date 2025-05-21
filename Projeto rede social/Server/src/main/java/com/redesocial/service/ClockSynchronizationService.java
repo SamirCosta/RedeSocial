@@ -34,13 +34,10 @@ public class ClockSynchronizationService {
         if (running.compareAndSet(false, true)) {
             logger.log("Iniciando serviço de sincronização de relógios");
 
-            // Inicializa o gerenciador de tempo
             TimeManager.initialize(serverState, logger);
 
-            // Inicializa os componentes de sincronização
             communication.initializeSynchronization(syncIntervalMs, coordinatorCheckIntervalMs);
 
-            // Inicia a comunicação entre servidores
             communication.start();
 
             logger.log("Serviço de sincronização de relógios iniciado");
@@ -51,7 +48,6 @@ public class ClockSynchronizationService {
         if (running.compareAndSet(true, false)) {
             logger.log("Parando serviço de sincronização de relógios");
 
-            // Para a comunicação entre servidores
             communication.stop();
 
             logger.log("Serviço de sincronização de relógios parado");

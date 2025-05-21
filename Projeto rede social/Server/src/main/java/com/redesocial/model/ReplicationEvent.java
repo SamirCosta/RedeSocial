@@ -4,13 +4,8 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 
-/**
- * Representa um evento de replicação a ser processado pelos servidores
- */
 public class ReplicationEvent implements Serializable {
     private static final long serialVersionUID = 1L;
-
-    // Tipos possíveis de eventos de replicação
     public static final String TYPE_USER_CREATED = "USER_CREATED";
     public static final String TYPE_USER_UPDATED = "USER_UPDATED";
     public static final String TYPE_FOLLOW_ADDED = "FOLLOW_ADDED";
@@ -25,14 +20,6 @@ public class ReplicationEvent implements Serializable {
     private final long timestamp;
     private final JSONObject data;
 
-    /**
-     * Construtor para um evento de replicação
-     *
-     * @param type Tipo do evento
-     * @param entityId ID da entidade relacionada ao evento
-     * @param timestamp Timestamp do evento
-     * @param data Dados do evento
-     */
     public ReplicationEvent(String type, String entityId, long timestamp, JSONObject data) {
         this.type = type;
         this.entityId = entityId;

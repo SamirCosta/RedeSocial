@@ -6,9 +6,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * Represents the state of the server in the distributed system
- */
 public class ServerState implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -16,8 +13,8 @@ public class ServerState implements Serializable {
     private String serverAddress;
     private int serverPort;
     private boolean isCoordinator;
-    private long clockOffset; // Difference between local clock and system coordinated time
-    private Map<String, ServerInfo> knownServers; // Other servers in the cluster
+    private long clockOffset;
+    private Map<String, ServerInfo> knownServers;
 
     public ServerState(String serverId, String serverAddress, int serverPort) {
         this.serverId = serverId;
@@ -112,9 +109,6 @@ public class ServerState implements Serializable {
                 '}';
     }
 
-    /**
-     * Internal class to store server information
-     */
     public static class ServerInfo implements Serializable {
         private static final long serialVersionUID = 1L;
 

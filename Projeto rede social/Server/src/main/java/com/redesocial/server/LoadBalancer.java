@@ -17,31 +17,25 @@ public class LoadBalancer {
         this.logger = logger;
     }
 
-    // Adiciona um servidor à lista de servidores disponíveis
     public synchronized void addServer(String serverId, String address, int port) {
-        // Verifica se o servidor já existe
         for (ServerInfo server : servers) {
             if (server.getServerId().equals(serverId)) {
-                // Atualizar informações se o servidor já existir
                 server.setActive(true);
                 logger.log("Servidor atualizado no balanceador: " + server);
                 return;
             }
         }
 
-        // Adiciona novo servidor se não existir
         ServerInfo serverInfo = new ServerInfo(serverId, address, port, true);
         servers.add(serverInfo);
         logger.log("Servidor adicionado ao balanceador: " + serverInfo);
     }
 
-    // Remove um servidor da lista
     public synchronized void removeServer(String serverId) {
         servers.removeIf(server -> server.getServerId().equals(serverId));
         logger.log("Servidor removido do balanceador: " + serverId);
     }
 
-    // Atualiza o status de um servidor
     public synchronized void setServerStatus(String serverId, boolean active) {
         for (ServerInfo server : servers) {
             if (server.getServerId().equals(serverId)) {
@@ -52,14 +46,12 @@ public class LoadBalancer {
         }
     }
 
-    // Obtém o próximo servidor usando Round Robin
     public synchronized ServerInfo getNextServer() {
         if (servers.isEmpty()) {
             logger.log("Nenhum servidor disponível no balanceador");
             return null;
         }
 
-        // Filtra apenas servidores ativos
         List<ServerInfo> activeServers = new ArrayList<>();
         for (ServerInfo server : servers) {
             if (server.isActive()) {
@@ -72,7 +64,6 @@ public class LoadBalancer {
             return null;
         }
 
-        // Implementação do Round Robin
         int index = currentIndex.getAndIncrement() % activeServers.size();
         ServerInfo selectedServer = activeServers.get(index);
         logger.log("Servidor selecionado pelo balanceador: " + selectedServer);
@@ -80,7 +71,6 @@ public class LoadBalancer {
         return selectedServer;
     }
 
-    // Classe interna para armazenar informações do servidor
     public static class ServerInfo {
         private final String serverId;
         private final String address;
@@ -125,7 +115,6 @@ public class LoadBalancer {
         }
     }
 
-    // Método para depuração - lista todos os servidores
     public synchronized List<ServerInfo> getAllServers() {
         return new ArrayList<>(servers);
     }

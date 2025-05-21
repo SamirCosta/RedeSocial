@@ -330,12 +330,12 @@ class SocialNetworkClient:
         """
         # Converte para JSON e envia
         request_json = json.dumps(request)
-        print(f"Enviando requisição: {request_json}")
+        # print(f"Enviando requisição: {request_json}")
         self.socket.send_string(request_json)
         
         # Aguarda resposta
         response_json = self.socket.recv_string()
-        print(f"Resposta recebida: {response_json}")
+        # print(f"Resposta recebida: {response_json}")
         
         # Processa a resposta
         try:

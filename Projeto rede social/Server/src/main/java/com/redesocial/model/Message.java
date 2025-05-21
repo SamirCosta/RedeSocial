@@ -3,9 +3,6 @@ package com.redesocial.model;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-/**
- * Representa uma mensagem privada entre usuários
- */
 public class Message implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -17,14 +14,6 @@ public class Message implements Serializable {
     private boolean read;
     private LocalDateTime readAt;
 
-    /**
-     * Construtor para uma nova mensagem
-     *
-     * @param id ID único da mensagem
-     * @param senderUsername Nome do usuário que enviou a mensagem
-     * @param receiverUsername Nome do usuário que receberá a mensagem
-     * @param content Conteúdo da mensagem
-     */
     public Message(String id, String senderUsername, String receiverUsername, String content) {
         this.id = id;
         this.senderUsername = senderUsername;

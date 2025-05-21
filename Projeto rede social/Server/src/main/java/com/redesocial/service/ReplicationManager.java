@@ -7,9 +7,6 @@ import com.redesocial.repository.UserRepository;
 import com.redesocial.util.EventLogger;
 import org.json.JSONObject;
 
-/**
- * Gerenciador de replicação que coordena a replicação de dados entre repositórios
- */
 public class ReplicationManager {
     private static ReplicationManager instance;
     private ServerState serverState;
@@ -19,15 +16,9 @@ public class ReplicationManager {
     private PostRepository postRepository;
     private MessageRepository messageRepository;
 
-    /**
-     * Construtor privado para padrão Singleton
-     */
     private ReplicationManager() {
     }
 
-    /**
-     * Obtém a instância do ReplicationManager (Singleton)
-     */
     public static synchronized ReplicationManager getInstance() {
         if (instance == null) {
             instance = new ReplicationManager();
@@ -35,9 +26,6 @@ public class ReplicationManager {
         return instance;
     }
 
-    /**
-     * Inicializa o ReplicationManager
-     */
     public void initialize(ServerState serverState, EventLogger logger,
                            UserRepository userRepository,
                            PostRepository postRepository,
@@ -52,11 +40,6 @@ public class ReplicationManager {
         logger.log("ReplicationManager inicializado com todos os repositórios");
     }
 
-    /**
-     * Registra um evento de criação de usuário para replicação
-     *
-     * @param user Usuário criado
-     */
     public void registerUserCreation(User user) {
         if (replicationService == null) {
             logger.log("Serviço de replicação não inicializado");
@@ -78,12 +61,6 @@ public class ReplicationManager {
         replicationService.queueReplicationEvent(event);
     }
 
-    /**
-     * Registra um evento de adição de seguidor para replicação
-     *
-     * @param username Usuário que está sendo seguido
-     * @param followerUsername Usuário que está seguindo
-     */
     public void registerFollowAdded(String username, String followerUsername) {
         if (replicationService == null) {
             logger.log("Serviço de replicação não inicializado");
@@ -104,12 +81,6 @@ public class ReplicationManager {
         replicationService.queueReplicationEvent(event);
     }
 
-    /**
-     * Registra um evento de remoção de seguidor para replicação
-     *
-     * @param username Usuário que deixou de ser seguido
-     * @param followerUsername Usuário que deixou de seguir
-     */
     public void registerFollowRemoved(String username, String followerUsername) {
         if (replicationService == null) {
             logger.log("Serviço de replicação não inicializado");
@@ -130,14 +101,6 @@ public class ReplicationManager {
         replicationService.queueReplicationEvent(event);
     }
 
-    /**
-     * Processa um evento de replicação recebido de outro servidor
-     *
-     * @param eventType Tipo do evento
-     * @param entityId ID da entidade
-     * @param timestamp Timestamp do evento
-     * @param data Dados do evento
-     */
     public void handleReplicationEvent(String eventType, String entityId,
                                        long timestamp, JSONObject data) {
         logger.log("Processando evento de replicação: " + eventType + " para " + entityId);
@@ -169,23 +132,16 @@ public class ReplicationManager {
         }
     }
 
-    /**
-     * Replica a criação de um usuário localmente
-     *
-     * @param userData Dados do usuário
-     */
     private void replicateUserCreation(JSONObject userData) {
         try {
             String username = userData.getString("username");
             String password = userData.getString("password");
 
-            // Verifica se o usuário já existe para evitar duplicação
             if (userRepository.getUserByUsername(username) != null) {
                 logger.log("Usuário " + username + " já existe, ignorando replicação");
                 return;
             }
 
-            // Cria e adiciona o usuário localmente
             User user = new User(username, password);
             boolean success = userRepository.addUser(user);
 
@@ -199,17 +155,11 @@ public class ReplicationManager {
         }
     }
 
-    /**
-     * Replica a adição de um seguidor localmente
-     *
-     * @param followData Dados da relação de seguidor
-     */
     private void replicateFollowAdded(JSONObject followData) {
         try {
             String username = followData.getString("username");
             String followerUsername = followData.getString("followerUsername");
 
-            // Busca os usuários
             User user = userRepository.getUserByUsername(username);
             User follower = userRepository.getUserByUsername(followerUsername);
 
@@ -218,11 +168,9 @@ public class ReplicationManager {
                 return;
             }
 
-            // Adiciona o seguidor
             user.addFollower(followerUsername);
             follower.addFollowing(username);
 
-            // Salva as alterações
             userRepository.updateUser(user);
             userRepository.updateUser(follower);
 
@@ -232,17 +180,11 @@ public class ReplicationManager {
         }
     }
 
-    /**
-     * Replica a remoção de um seguidor localmente
-     *
-     * @param followData Dados da relação de seguidor
-     */
     private void replicateFollowRemoved(JSONObject followData) {
         try {
             String username = followData.getString("username");
             String followerUsername = followData.getString("followerUsername");
 
-            // Busca os usuários
             User user = userRepository.getUserByUsername(username);
             User follower = userRepository.getUserByUsername(followerUsername);
 
@@ -251,11 +193,9 @@ public class ReplicationManager {
                 return;
             }
 
-            // Remove o seguidor
             user.removeFollower(followerUsername);
             follower.removeFollowing(username);
 
-            // Salva as alterações
             userRepository.updateUser(user);
             userRepository.updateUser(follower);
 
@@ -288,11 +228,6 @@ public class ReplicationManager {
         replicationService.queueReplicationEvent(event);
     }
 
-    /**
-     * Registra um evento de atualização de post para replicação
-     *
-     * @param post Post atualizado
-     */
     public void registerPostUpdate(Post post) {
         if (replicationService == null) {
             logger.log("Serviço de replicação não inicializado");
@@ -314,11 +249,6 @@ public class ReplicationManager {
         replicationService.queueReplicationEvent(event);
     }
 
-    /**
-     * Registra um evento de remoção de post para replicação
-     *
-     * @param postId ID do post removido
-     */
     public void registerPostDeletion(String postId) {
         if (replicationService == null) {
             logger.log("Serviço de replicação não inicializado");
@@ -338,11 +268,6 @@ public class ReplicationManager {
         replicationService.queueReplicationEvent(event);
     }
 
-    /**
-     * Registra um evento de envio de mensagem para replicação
-     *
-     * @param message Mensagem enviada
-     */
     public void registerMessageSent(Message message) {
         if (replicationService == null) {
             logger.log("Serviço de replicação não inicializado");
@@ -370,9 +295,6 @@ public class ReplicationManager {
         replicationService.queueReplicationEvent(event);
     }
 
-    /**
-     * Replica a criação de um post localmente
-     */
     private void replicatePostCreation(JSONObject postData) {
         try {
             String id = postData.getString("id");
@@ -381,13 +303,11 @@ public class ReplicationManager {
             String createdAtStr = postData.getString("createdAt");
             String updatedAtStr = postData.getString("updatedAt");
 
-            // Verificar se o post já existe
             if (postRepository.getPostById(id) != null) {
                 logger.log("Post " + id + " já existe, ignorando replicação");
                 return;
             }
 
-            // Criar e adicionar o post
             Post post = new Post(id, username, content);
 
             boolean success = postRepository.addPost(post);
@@ -402,16 +322,12 @@ public class ReplicationManager {
         }
     }
 
-    /**
-     * Replica a atualização de um post localmente
-     */
     private void replicatePostUpdate(JSONObject postData) {
         try {
             String id = postData.getString("id");
             String content = postData.getString("content");
             String updatedAtStr = postData.getString("updatedAt");
 
-            // Busca o post existente
             Post post = postRepository.getPostById(id);
 
             if (post == null) {
@@ -419,10 +335,8 @@ public class ReplicationManager {
                 return;
             }
 
-            // Atualiza o conteúdo
             post.setContent(content);
 
-            // Salva as alterações
             boolean success = postRepository.updatePost(post);
 
             if (success) {
@@ -435,14 +349,10 @@ public class ReplicationManager {
         }
     }
 
-    /**
-     * Replica a remoção de um post localmente
-     */
     private void replicatePostDeletion(JSONObject postData) {
         try {
             String id = postData.getString("id");
 
-            // Remove o post
             boolean success = postRepository.removePost(id);
 
             if (success) {
@@ -455,9 +365,6 @@ public class ReplicationManager {
         }
     }
 
-    /**
-     * Replica o envio de uma mensagem localmente
-     */
     private void replicateMessageSent(JSONObject messageData) {
         try {
             String id = messageData.getString("id");
@@ -467,13 +374,11 @@ public class ReplicationManager {
             String sentAtStr = messageData.getString("sentAt");
             boolean read = messageData.getBoolean("read");
 
-            // Verificar se a mensagem já existe
             if (messageRepository.getMessageById(id) != null) {
                 logger.log("Mensagem " + id + " já existe, ignorando replicação");
                 return;
             }
 
-            // Criar e adicionar a mensagem
             Message message = new Message(id, senderUsername, receiverUsername, content);
             if (read && messageData.has("readAt")) {
                 message.markAsRead();

@@ -21,10 +21,8 @@ public class Logger {
         String timestamp = dateFormat.format(new Date());
         String logEntry = timestamp + " - " + message;
 
-        // Write to log file
         writer.println(logEntry);
 
-        // Also print to console
         System.out.println(logEntry);
     }
 
@@ -32,11 +30,9 @@ public class Logger {
         String timestamp = dateFormat.format(new Date());
         String logEntry = timestamp + " - ERROR - " + message;
 
-        // Write to log file
         writer.println(logEntry);
         exception.printStackTrace(writer);
 
-        // Also print to console
         System.err.println(logEntry);
         exception.printStackTrace(System.err);
     }

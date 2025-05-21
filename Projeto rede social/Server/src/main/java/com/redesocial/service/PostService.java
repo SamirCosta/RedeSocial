@@ -18,9 +18,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-/**
- * Serviço para gerenciar publicações de usuários
- */
 public class PostService {
     private final PostRepository postRepository;
     private final UserRepository userRepository;
@@ -29,9 +26,6 @@ public class PostService {
     private final ExecutorService executor;
     private final AtomicBoolean running;
 
-    /**
-     * Construtor do serviço de posts
-     */
     public PostService(PostRepository postRepository, UserRepository userRepository,
                        EventLogger logger, String address, int port) {
         this.postRepository = postRepository;
@@ -42,18 +36,12 @@ public class PostService {
         this.running = new AtomicBoolean(false);
     }
 
-    /**
-     * Inicia o serviço de posts
-     */
     public void start() {
         if (running.compareAndSet(false, true)) {
             executor.submit(this::runService);
         }
     }
 
-    /**
-     * Para o serviço de posts
-     */
     public void stop() {
         if (running.compareAndSet(true, false)) {
             executor.shutdown();
@@ -61,19 +49,16 @@ public class PostService {
         }
     }
 
-    /**
-     * Loop principal do serviço
-     */
     private void runService() {
         try (ZContext context = new ZContext()) {
-            // Socket REP para responder às requisições
+
             ZMQ.Socket socket = context.createSocket(SocketType.REP);
             socket.bind(bindAddress);
 
             logger.log("Serviço de posts iniciado em " + bindAddress);
 
             while (running.get()) {
-                // Aguarda uma requisição
+
                 byte[] request = socket.recv();
                 if (request == null) {
                     continue;
@@ -82,10 +67,8 @@ public class PostService {
                 String requestStr = new String(request, StandardCharsets.UTF_8);
                 logger.log("Requisição recebida no serviço de posts: " + requestStr);
 
-                // Processa a requisição
                 String response = processRequest(requestStr);
 
-                // Envia a resposta
                 socket.send(response.getBytes(StandardCharsets.UTF_8));
             }
         } catch (Exception e) {
@@ -93,9 +76,6 @@ public class PostService {
         }
     }
 
-    /**
-     * Processa uma requisição recebida
-     */
     private String processRequest(String requestStr) {
         try {
             JSONObject request = new JSONObject(requestStr);
@@ -136,28 +116,24 @@ public class PostService {
         }
     }
 
-    /**
-     * Cria uma nova publicação
-     */
     private String createPost(String username, String content) {
-        // Verificar se o usuário existe
+
         User user = userRepository.getUserByUsername(username);
         if (user == null) {
             return createErrorResponse("Usuário não encontrado");
         }
 
         try {
-            // Gerar ID único para o post
+
             String postId = UUID.randomUUID().toString();
 
-            // Criar e salvar o post
+
             Post post = new Post(postId, username, content);
             boolean success = postRepository.addPost(post);
 
             if (success) {
                 logger.log("Post criado com sucesso: " + postId + " por " + username);
 
-                // Registrar para replicação
                 ReplicationManager.getInstance().registerPostCreation(post);
 
                 JSONObject response = new JSONObject();
@@ -176,30 +152,24 @@ public class PostService {
         }
     }
 
-    /**
-     * Atualiza uma publicação existente
-     */
     private String updatePost(String postId, String username, String content) {
-        // Verificar se o post existe
+
         Post post = postRepository.getPostById(postId);
         if (post == null) {
             return createErrorResponse("Post não encontrado");
         }
 
-        // Verificar se o usuário é o autor do post
         if (!post.getUsername().equals(username)) {
             return createErrorResponse("Apenas o autor pode atualizar o post");
         }
 
         try {
-            // Atualizar o conteúdo do post
             post.setContent(content);
             boolean success = postRepository.updatePost(post);
 
             if (success) {
                 logger.log("Post atualizado com sucesso: " + postId);
 
-                // Registrar para replicação
                 ReplicationManager.getInstance().registerPostUpdate(post);
 
                 JSONObject response = new JSONObject();
@@ -217,29 +187,22 @@ public class PostService {
         }
     }
 
-    /**
-     * Remove uma publicação
-     */
     private String deletePost(String postId, String username) {
-        // Verificar se o post existe
         Post post = postRepository.getPostById(postId);
         if (post == null) {
             return createErrorResponse("Post não encontrado");
         }
 
-        // Verificar se o usuário é o autor do post
         if (!post.getUsername().equals(username)) {
             return createErrorResponse("Apenas o autor pode remover o post");
         }
 
         try {
-            // Remover o post
             boolean success = postRepository.removePost(postId);
 
             if (success) {
                 logger.log("Post removido com sucesso: " + postId);
 
-                // Registrar para replicação
                 ReplicationManager.getInstance().registerPostDeletion(postId);
 
                 JSONObject response = new JSONObject();
@@ -255,18 +218,14 @@ public class PostService {
         }
     }
 
-    /**
-     * Obtém as publicações de um usuário
-     */
     private String getUserPosts(String username) {
-        // Verificar se o usuário existe
         User user = userRepository.getUserByUsername(username);
         if (user == null) {
             return createErrorResponse("Usuário não encontrado");
         }
 
         try {
-            // Buscar os posts do usuário
+
             List<Post> posts = postRepository.getPostsByUsername(username);
 
             JSONObject response = new JSONObject();
@@ -293,22 +252,16 @@ public class PostService {
         }
     }
 
-    /**
-     * Obtém o feed de publicações para um usuário
-     */
     private String getFeed(String username, int limit) {
-        // Verificar se o usuário existe
         User user = userRepository.getUserByUsername(username);
         if (user == null) {
             return createErrorResponse("Usuário não encontrado");
         }
 
         try {
-            // Obter os usuários que o usuário segue
             List<String> following = new java.util.ArrayList<>(user.getFollowing());
-            following.add(username); // Incluir os próprios posts no feed
+            following.add(username);
 
-            // Buscar os posts recentes desses usuários
             List<Post> feedPosts = postRepository.getRecentPostsByUsers(following, limit);
 
             JSONObject response = new JSONObject();
@@ -335,9 +288,6 @@ public class PostService {
         }
     }
 
-    /**
-     * Cria uma resposta de erro
-     */
     private String createErrorResponse(String message) {
         JSONObject response = new JSONObject();
         response.put("success", false);

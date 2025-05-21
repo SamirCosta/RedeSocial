@@ -43,14 +43,13 @@ public class UserService {
 
     private void runService() {
         try (ZContext context = new ZContext()) {
-            // Socket REP para responder às requisições
+
             ZMQ.Socket socket = context.createSocket(SocketType.REP);
             socket.bind(bindAddress);
 
             logger.log("Serviço de usuários iniciado em " + bindAddress);
 
             while (running.get()) {
-                // Aguarda uma requisição
                 byte[] request = socket.recv();
                 if (request == null) {
                     continue;
@@ -59,10 +58,8 @@ public class UserService {
                 String requestStr = new String(request, StandardCharsets.UTF_8);
                 logger.log("Requisição recebida: " + requestStr);
 
-                // Processa a requisição
                 String response = processRequest(requestStr);
 
-                // Envia a resposta
                 socket.send(response.getBytes(StandardCharsets.UTF_8));
             }
         } catch (Exception e) {
@@ -96,20 +93,18 @@ public class UserService {
     }
 
     private String registerUser(String username, String password) {
-        // Verificar se o usuário já existe
+
         if (userRepository.getUserByUsername(username) != null) {
             return createErrorResponse("Nome de usuário já está em uso");
         }
 
         try {
-            // Criar e salvar o usuário
             User user = new User(username, password);
             boolean success = userRepository.addUser(user);
 
             if (success) {
                 logger.log("Usuário registrado com sucesso: " + username);
 
-                // Registra o evento para replicação
                 ReplicationManager.getInstance().registerUserCreation(user);
 
                 JSONObject response = new JSONObject();
@@ -127,13 +122,11 @@ public class UserService {
     }
 
     private String loginUser(String username, String password) {
-        // Verificar se o usuário existe
         User user = userRepository.getUserByUsername(username);
         if (user == null) {
             return createErrorResponse("Usuário não encontrado");
         }
 
-        // Verificar se a senha está correta
         if (!user.getPassword().equals(password)) {
             return createErrorResponse("Senha incorreta");
         }

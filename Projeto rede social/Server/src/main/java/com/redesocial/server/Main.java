@@ -44,10 +44,8 @@ public class Main {
         config = new ServerConfig(configFile);
         System.out.println("Starting server with configuration: " + config);
 
-        // Verifica se este processo é um balanceador ou um servidor
         isBalancer = Boolean.parseBoolean(config.getProperty("is.balancer", "false"));
 
-        // Cria o diretório de dados para logs se não existir
         File dataDir = new File(config.getDataDirectory());
         if (!dataDir.exists()) {
             dataDir.mkdirs();
@@ -56,7 +54,6 @@ public class Main {
         serverState = config.createServerState();
         logger = new EventLogger(serverState, config.getLogFilePath());
 
-        // Inicializa o gerenciador de sincronização para todos os tipos de servidor
         syncManager = new SynchronizationManager(serverState, logger);
         syncManager.initialize(config);
 
@@ -70,20 +67,17 @@ public class Main {
     private void initializeBalancer() {
         logger.log("Inicializando como balanceador de carga");
 
-        // Cria o balanceador de carga
         loadBalancer = new LoadBalancer(logger);
 
-        // Adiciona os servidores conhecidos ao balanceador com as portas de SERVIÇO corretas
         String[] seedServers = config.getSeedServers();
         for (String serverAddress : seedServers) {
             String[] parts = serverAddress.split(":");
             if (parts.length == 3) {
                 String serverId = parts[0];
                 String address = parts[1];
-                // Correção: usar a porta de serviço correta em vez da porta de sincronização
+
                 int port;
 
-                // Mapeamento correto de servidores para portas de serviço
                 if (serverId.equals("server1")) {
                     port = 5555;
                 } else if (serverId.equals("server2")) {
@@ -91,7 +85,6 @@ public class Main {
                 } else if (serverId.equals("server3")) {
                     port = 5557;
                 } else {
-                    // Usa a porta do arquivo de configuração, mas isso pode não ser ideal
                     port = Integer.parseInt(parts[2]);
                     logger.log("Aviso: Usando porta de sincronização para o servidor " + serverId +
                             ". Isso pode causar problemas de comunicação!");
@@ -102,15 +95,11 @@ public class Main {
             }
         }
 
-        // Inicia o serviço de balanceamento
         int balancerPort = Integer.parseInt(config.getProperty("balancer.port", "5000"));
         balancerService = new BalancerService(loadBalancer, logger, config.getServerAddress(), balancerPort);
     }
 
     private void initializeServer() {
-        logger.log("Inicializando como servidor de aplicação");
-
-        // Cria diretórios para os diferentes tipos de dados
         String userDataDir = config.getProperty("user.data.directory", "./user_data");
         String postDataDir = config.getProperty("post.data.directory", "./post_data");
         String messageDataDir = config.getProperty("message.data.directory", "./message_data");
@@ -119,7 +108,6 @@ public class Main {
         createDirectoryIfNotExists(postDataDir);
         createDirectoryIfNotExists(messageDataDir);
 
-        // Inicializa os repositórios com arquivos específicos para cada servidor
         String serverId = serverState.getServerId();
         String userDataPath = userDataDir + "/users_" + serverId + ".data";
         String postDataPath = postDataDir + "/posts_" + serverId + ".data";
@@ -129,11 +117,8 @@ public class Main {
         postRepository = new PostRepository(postDataPath, logger);
         messageRepository = new MessageRepository(messageDataPath, logger);
 
-        // Obtém a porta base para os serviços
         int serviceBasePort = Integer.parseInt(config.getProperty("user.service.port", "5555"));
 
-        // Inicializa os serviços
-        logger.log("-------------------ARQUIVO DE DATA: " + userDataPath);
         userService = new UserService(userRepository, logger, config.getServerAddress(), serviceBasePort);
         postService = new PostService(postRepository, userRepository, logger, config.getServerAddress(), serviceBasePort);
         messageService = new MessageService(messageRepository, userRepository, logger, config.getServerAddress(), serviceBasePort);
@@ -149,13 +134,9 @@ public class Main {
     }
 
     public void start() {
-        logger.log("Iniciando serviços...");
-
-        // Inicia o gerenciador de sincronização para todos os servidores
         syncManager.start();
 
         if (isBalancer) {
-            // Inicia o serviço de balanceamento
             balancerService.start();
             logger.log("Balanceador de carga iniciado");
         } else {
@@ -166,9 +147,6 @@ public class Main {
             }
 
             DataReplicationService replicationService = syncManager.getReplicationService();
-            logger.log("DEBUG: replicationService é null? " + (replicationService == null));
-
-            logger.log("DEBUG: Verificando se ServerCommunication tem replicationService...");
 
             if (replicationService != null) {
                 ReplicationManager.getInstance().initialize(
@@ -188,7 +166,6 @@ public class Main {
             logger.log("Todos os serviços de aplicação iniciados");
         }
 
-        // Registra um gancho de desligamento para fechar recursos adequadamente
         Runtime.getRuntime().addShutdownHook(new Thread(this::shutdown));
 
         logger.log("Sistema iniciado com sucesso");
@@ -197,18 +174,15 @@ public class Main {
     public void shutdown() {
         logger.log("Desligando servidor...");
 
-        // Para o gerenciador de sincronização para todos os servidores
         if (syncManager != null) {
             syncManager.stop();
         }
 
         if (isBalancer) {
-            // Para o serviço de balanceamento
             if (balancerService != null) {
                 balancerService.stop();
             }
         } else {
-            // Para todos os serviços no servidor de aplicação
             if (userService != null) {
                 userService.stop();
             }
@@ -223,7 +197,6 @@ public class Main {
             }
         }
 
-        // Fecha o logger
         if (logger != null) {
             logger.close();
         }
@@ -239,7 +212,6 @@ public class Main {
             server.initialize(configFile);
             server.start();
 
-            // Mantém o processo principal vivo
             Thread.currentThread().join();
         } catch (Exception e) {
             System.err.println("Erro ao iniciar servidor: " + e.getMessage());
