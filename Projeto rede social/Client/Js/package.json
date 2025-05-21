@@ -1,0 +1,27 @@
+{
+  "name": "social-network-client",
+  "version": "1.0.0",
+  "description": "Cliente JavaScript para Rede Social Distribuída",
+  "main": "social_network_client.js",
+  "scripts": {
+    "start": "node social_network_client.js",
+    "dev": "nodemon social_network_client.js"
+  },
+  "keywords": [
+    "social-network",
+    "distributed-system",
+    "zeromq",
+    "client"
+  ],
+  "author": "Sistema Distribuído",
+  "license": "MIT",
+  "dependencies": {
+    "zeromq": "^6.0.0-beta.20"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
