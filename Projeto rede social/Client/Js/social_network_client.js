@@ -213,13 +213,10 @@ class SocialNetworkClient {
     async _sendRequest(request) {
         try {
             const requestJson = JSON.stringify(request);
-            console.log(`Enviando requisição: ${requestJson}`);
             
             await this.socket.send(requestJson);
             const [responseBuffer] = await this.socket.receive();
             const responseJson = responseBuffer.toString();
-            
-            console.log(`Resposta recebida: ${responseJson}`);
             
             return JSON.parse(responseJson);
         } catch (error) {
