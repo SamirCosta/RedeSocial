@@ -1,0 +1,666 @@
+21:36:50.735 - [Server server1] EventLogger initialized for server server1
+21:36:50.778 - [Server server1] Inicializando comunicação no endereço: tcp://localhost:6038
+21:36:50.782 - [Server server1] Servidor registrado: balancer em localhost:6030
+21:36:50.782 - [Server server1] Servidor registrado: balancer em localhost:6030
+21:36:50.782 - [Server server1] Servidor registrado: server2 em localhost:6040
+21:36:50.782 - [Server server1] Servidor registrado: server2 em localhost:6040
+21:36:50.783 - [Server server1] Servidor registrado: server3 em localhost:6042
+21:36:50.783 - [Server server1] Servidor registrado: server3 em localhost:6042
+21:36:50.783 - [Server server1] Serviços de sincronização inicializados
+21:36:50.784 - [Server server1] Arquivo de usuários não encontrado, iniciando com repositório vazio
+21:36:50.785 - [Server server1] Arquivo de publicações não encontrado, iniciando com repositório vazio
+21:36:50.786 - [Server server1] Arquivo de mensagens não encontrado, iniciando com repositório vazio
+21:36:50.788 - [Server server1] Iniciando serviço de sincronização de relógios
+21:36:50.791 - [Server server1] TimeManager inicializado com offset: 0
+21:36:50.814 - [Server server1] Tentando bind em tcp://localhost:6038 (tentativa 1 de 5)
+21:36:50.819 - [Server server1] Bind bem-sucedido em tcp://localhost:6038
+21:36:50.819 - [Server server1] Receptor de mensagens de sincronização iniciado com sucesso
+21:36:51.797 - [Server server1] Comunicação entre servidores iniciada em tcp://localhost:6038
+21:36:51.798 - [Server server1] Serviço de sincronização de relógios iniciado
+21:36:51.798 - [Server server1] Iniciando serviço de replicação de dados
+21:36:51.799 - [Server server1] Serviço de replicação iniciado
+21:36:51.800 - [Server server1] DEBUG: Verificando associação no ServerCommunication...
+21:36:51.800 - [Server server1] Serviços de sincronização iniciados
+21:36:52.810 - [Server server1] ReplicationManager inicializado com todos os repositórios
+21:36:52.812 - [Server server1] Todos os serviços de aplicação iniciados
+21:36:52.814 - [Server server1] Sistema iniciado com sucesso
+21:36:52.824 - [Server server1] Serviço de posts iniciado em tcp://localhost:5555
+21:36:52.824 - [Server server1] Serviço de seguidores iniciado em tcp://localhost:5755
+21:36:52.824 - [Server server1] Serviço de mensagens iniciado em tcp://localhost:5655
+21:36:52.829 - [Server server1] Serviço de usuários iniciado em tcp://localhost:5855
+21:36:54.815 - [Server server1] Iniciando agendamento de sincronização de relógios
+21:36:55.827 - [Server server1] Iniciando serviço de descoberta de servidores
+21:36:58.808 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":5,"action":"SERVER_PING"}
+21:36:58.811 - [Server server1] Recebido ping do servidor balancer
+21:36:58.854 - [Server server1] Mensagem recebida: {"syncAddress":"tcp://localhost:6030","logicalTime":8,"serverAddress":"localhost","action":"SERVER_ANNOUNCEMENT","servicePort":5000,"serverPort":5000,"serverId":"balancer"}
+21:36:58.857 - [Server server1] Recebido anúncio do servidor balancer em localhost:5000 (sync: tcp://localhost:6030)
+21:36:58.857 - [Server server1] Informações atualizadas para servidor: balancer
+21:37:00.838 - [Server server1] Verificando status dos servidores...
+21:37:00.868 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":10,"action":"SERVER_PING"}
+21:37:00.871 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":12,"isActive":true,"serverId":"balancer"}
+21:37:00.900 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":14,"action":"SERVER_PING"}
+21:37:00.916 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":15,"isActive":true,"serverId":"server3"}
+21:37:00.941 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":17,"action":"SERVER_PING"}
+21:37:00.944 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":18,"isActive":true,"serverId":"server2"}
+21:37:00.948 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:37:03.844 - [Server server1] Anunciando presença do servidor server1 na rede
+21:37:03.873 - [Server server1] Mensagem enviada para balancer: {"syncAddress":"tcp://localhost:6038","logicalTime":20,"serverAddress":"localhost","action":"SERVER_ANNOUNCEMENT","servicePort":5555,"serverPort":5555,"serverId":"server1"}
+21:37:03.877 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":21}
+21:37:03.880 - [Server server1] Mensagem enviada para server2: {"syncAddress":"tcp://localhost:6038","logicalTime":21,"serverAddress":"localhost","action":"SERVER_ANNOUNCEMENT","servicePort":5555,"serverPort":5555,"serverId":"server1"}
+21:37:03.887 - [Server server1] Mensagem enviada para server3: {"syncAddress":"tcp://localhost:6038","logicalTime":22,"serverAddress":"localhost","action":"SERVER_ANNOUNCEMENT","servicePort":5555,"serverPort":5555,"serverId":"server1"}
+21:37:03.887 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":22}
+21:37:03.897 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":23}
+21:37:05.819 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":29,"action":"SERVER_PING"}
+21:37:05.820 - [Server server1] Recebido ping do servidor server2
+21:37:08.802 - [Server server1] Mensagem recebida: {"syncAddress":"tcp://localhost:6040","logicalTime":34,"serverAddress":"localhost","action":"SERVER_ANNOUNCEMENT","servicePort":5556,"serverPort":5556,"serverId":"server2"}
+21:37:08.802 - [Server server1] Recebido anúncio do servidor server2 em localhost:5556 (sync: tcp://localhost:6040)
+21:37:08.803 - [Server server1] Informações atualizadas para servidor: server2
+21:37:10.742 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":40,"action":"SERVER_PING"}
+21:37:10.743 - [Server server1] Recebido ping do servidor balancer
+21:37:10.924 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":48,"action":"SERVER_PING"}
+21:37:10.925 - [Server server1] Recebido ping do servidor server3
+21:37:13.920 - [Server server1] Mensagem recebida: {"syncAddress":"tcp://localhost:6042","logicalTime":53,"serverAddress":"localhost","action":"SERVER_ANNOUNCEMENT","servicePort":5557,"serverPort":5557,"serverId":"server3"}
+21:37:13.921 - [Server server1] Recebido anúncio do servidor server3 em localhost:5557 (sync: tcp://localhost:6042)
+21:37:13.921 - [Server server1] Informações atualizadas para servidor: server3
+21:37:15.842 - [Server server1] Verificando status dos servidores...
+21:37:15.856 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":55,"action":"SERVER_PING"}
+21:37:15.859 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":56,"isActive":true,"serverId":"balancer"}
+21:37:15.873 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":58,"action":"SERVER_PING"}
+21:37:15.875 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":59,"isActive":true,"serverId":"server3"}
+21:37:15.890 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":61,"action":"SERVER_PING"}
+21:37:15.892 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":62,"isActive":true,"serverId":"server2"}
+21:37:15.894 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:37:18.708 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":65,"action":"IS_COORDINATOR_REQUEST"}
+21:37:18.749 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":70,"action":"ELECTION"}
+21:37:18.749 - [Server server1] Recebida mensagem de eleição de balancer
+21:37:18.749 - [Server server1] Enviada resposta de eleição para balancer
+21:37:18.750 - [Server server1] Iniciando eleição de coordenador
+21:37:18.750 - [Server server1] Enviada mensagem de eleição para server3
+21:37:18.750 - [Server server1] Enviada mensagem de eleição para server2
+21:37:18.771 - [Server server1] Mensagem recebida: {"logicalTime":73,"action":"COORDINATOR","coordinatorId":"server3"}
+21:37:18.771 - [Server server1] Recebida mensagem de coordenador de server3
+21:37:18.771 - [Server server1] Este servidor agora reconhece server3 como coordenador
+21:37:18.778 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":72,"action":"ELECTION_RESPONSE"}
+21:37:18.778 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":74,"action":"ELECTION"}
+21:37:18.780 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":73,"action":"ELECTION"}
+21:37:18.781 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":79}
+21:37:18.783 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":86}
+21:37:18.785 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":89}
+21:37:18.813 - [Server server1] Mensagem recebida: {"logicalTime":85,"action":"COORDINATOR","coordinatorId":"server3"}
+21:37:18.814 - [Server server1] Recebida mensagem de coordenador de server3
+21:37:18.814 - [Server server1] Este servidor agora reconhece server3 como coordenador
+21:37:18.815 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":81,"action":"ELECTION_RESPONSE"}
+21:37:18.815 - [Server server1] Recebida resposta de eleição de server2
+21:37:18.817 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":87,"action":"ELECTION_RESPONSE"}
+21:37:18.817 - [Server server1] Recebida resposta de eleição de server3
+21:37:18.818 - [Server server1] Mensagem recebida: {"logicalTime":90,"action":"COORDINATOR","coordinatorId":"server3"}
+21:37:18.818 - [Server server1] Recebida mensagem de coordenador de server3
+21:37:18.818 - [Server server1] Este servidor agora reconhece server3 como coordenador
+21:37:18.834 - [Server server1] Mensagem recebida: {"logicalTime":102,"action":"COORDINATOR","coordinatorId":"server3"}
+21:37:18.834 - [Server server1] Recebida mensagem de coordenador de server3
+21:37:18.834 - [Server server1] Este servidor agora reconhece server3 como coordenador
+21:37:20.806 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":112,"action":"SERVER_PING"}
+21:37:20.807 - [Server server1] Recebido ping do servidor server2
+21:37:23.763 - [Server server1] Recebida resposta de servidor com ID maior. Aguardando nova eleição.
+21:37:23.838 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":114,"action":"IS_COORDINATOR_REQUEST"}
+21:37:23.840 - [Server server1] Resposta recebida de balancer: {"isCoordinator":false,"success":true,"logicalTime":115}
+21:37:23.854 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":117,"action":"IS_COORDINATOR_REQUEST"}
+21:37:23.857 - [Server server1] Resposta recebida de server3: {"isCoordinator":true,"success":true,"logicalTime":118}
+21:37:23.858 - [Server server1] Verificando se o coordenador server3 está ativo
+21:37:23.869 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":120,"action":"COORDINATOR_PING"}
+21:37:23.871 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":121}
+21:37:23.872 - [Server server1] Coordenador server3 respondeu ao ping
+21:37:25.731 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":127,"action":"SERVER_PING"}
+21:37:25.732 - [Server server1] Recebido ping do servidor balancer
+21:37:25.947 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":135,"action":"SERVER_PING"}
+21:37:25.948 - [Server server1] Recebido ping do servidor server3
+21:37:30.844 - [Server server1] Verificando status dos servidores...
+21:37:30.869 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":137,"action":"SERVER_PING"}
+21:37:30.874 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":138,"isActive":true,"serverId":"balancer"}
+21:37:30.884 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":140,"action":"SERVER_PING"}
+21:37:30.887 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":142,"isActive":true,"serverId":"server3"}
+21:37:30.901 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":144,"action":"SERVER_PING"}
+21:37:30.903 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":145,"isActive":true,"serverId":"server2"}
+21:37:30.904 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:37:33.879 - [Server server1] Mensagem recebida: {"logicalTime":145,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"server3"}
+21:37:35.785 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":153,"action":"SERVER_PING"}
+21:37:35.785 - [Server server1] Recebido ping do servidor server2
+21:37:40.749 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":158,"action":"SERVER_PING"}
+21:37:40.750 - [Server server1] Recebido ping do servidor balancer
+21:37:40.928 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":166,"action":"SERVER_PING"}
+21:37:40.928 - [Server server1] Recebido ping do servidor server3
+21:37:45.830 - [Server server1] Verificando status dos servidores...
+21:37:45.853 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":168,"action":"SERVER_PING"}
+21:37:45.856 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":169,"isActive":true,"serverId":"balancer"}
+21:37:45.867 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":171,"action":"SERVER_PING"}
+21:37:45.868 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":172,"isActive":true,"serverId":"server3"}
+21:37:45.884 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":174,"action":"SERVER_PING"}
+21:37:45.888 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":175,"isActive":true,"serverId":"server2"}
+21:37:45.889 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:37:50.807 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":183,"action":"SERVER_PING"}
+21:37:50.808 - [Server server1] Recebido ping do servidor server2
+21:37:53.828 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":185,"action":"IS_COORDINATOR_REQUEST"}
+21:37:53.831 - [Server server1] Resposta recebida de balancer: {"isCoordinator":false,"success":true,"logicalTime":186}
+21:37:53.845 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":188,"action":"IS_COORDINATOR_REQUEST"}
+21:37:53.848 - [Server server1] Resposta recebida de server3: {"isCoordinator":true,"success":true,"logicalTime":189}
+21:37:53.848 - [Server server1] Verificando se o coordenador server3 está ativo
+21:37:53.861 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":191,"action":"COORDINATOR_PING"}
+21:37:53.862 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":192}
+21:37:53.863 - [Server server1] Coordenador server3 respondeu ao ping
+21:37:55.752 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":198,"action":"SERVER_PING"}
+21:37:55.752 - [Server server1] Recebido ping do servidor balancer
+21:37:55.921 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":206,"action":"SERVER_PING"}
+21:37:55.921 - [Server server1] Recebido ping do servidor server3
+21:38:00.831 - [Server server1] Verificando status dos servidores...
+21:38:00.844 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":208,"action":"SERVER_PING"}
+21:38:00.847 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":209,"isActive":true,"serverId":"balancer"}
+21:38:00.859 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":211,"action":"SERVER_PING"}
+21:38:00.863 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":213,"isActive":true,"serverId":"server3"}
+21:38:00.880 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":215,"action":"SERVER_PING"}
+21:38:00.882 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":216,"isActive":true,"serverId":"server2"}
+21:38:00.883 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:38:03.879 - [Server server1] Mensagem recebida: {"logicalTime":216,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"server3"}
+21:38:04.884 - [Server server1] Mensagem recebida: {"coordinator":"server3","logicalTime":223,"action":"TIME_REQUEST","timestamp":1747960684859}
+21:38:04.886 - [Server server1] Recebida solicitação de tempo do coordenador server3. Diferença: 25ms
+21:38:04.915 - [Server server1] Mensagem enviada para server3: {"requestTimestamp":1747960684859,"responseTimestamp":1747960684884,"logicalTime":225,"action":"TIME_RESPONSE","timeDifference":25,"serverId":"server1"}
+21:38:04.918 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":229}
+21:38:05.808 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":236,"action":"SERVER_PING"}
+21:38:05.808 - [Server server1] Recebido ping do servidor server2
+21:38:07.913 - [Server server1] Mensagem recebida: {"coordinator":"server3","logicalTime":237,"action":"CLOCK_ADJUSTMENT","adjustment":-6}
+21:38:07.914 - [Server server1] Recebido ajuste de relógio do coordenador server3: -6ms
+21:38:07.916 - [Server server1] Relógio atualizado: offset anterior=0, novo offset=-6, ajuste=-6ms
+21:38:07.917 - [Server server1] Relógio ajustado: novo offset = -6ms
+21:38:10.724 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":246,"action":"SERVER_PING"}
+21:38:10.724 - [Server server1] Recebido ping do servidor balancer
+21:38:10.905 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":254,"action":"SERVER_PING"}
+21:38:10.905 - [Server server1] Recebido ping do servidor server3
+21:38:15.841 - [Server server1] Verificando status dos servidores...
+21:38:15.863 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":256,"action":"SERVER_PING"}
+21:38:15.869 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":257,"isActive":true,"serverId":"balancer"}
+21:38:15.883 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":259,"action":"SERVER_PING"}
+21:38:15.885 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":260,"isActive":true,"serverId":"server3"}
+21:38:15.898 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":262,"action":"SERVER_PING"}
+21:38:15.900 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":263,"isActive":true,"serverId":"server2"}
+21:38:15.901 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:38:20.810 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":271,"action":"SERVER_PING"}
+21:38:20.810 - [Server server1] Recebido ping do servidor server2
+21:38:23.830 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":273,"action":"IS_COORDINATOR_REQUEST"}
+21:38:23.833 - [Server server1] Resposta recebida de balancer: {"isCoordinator":false,"success":true,"logicalTime":274}
+21:38:23.849 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":276,"action":"IS_COORDINATOR_REQUEST"}
+21:38:23.850 - [Server server1] Resposta recebida de server3: {"isCoordinator":true,"success":true,"logicalTime":277}
+21:38:23.851 - [Server server1] Verificando se o coordenador server3 está ativo
+21:38:23.868 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":279,"action":"COORDINATOR_PING"}
+21:38:23.870 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":280}
+21:38:23.871 - [Server server1] Coordenador server3 respondeu ao ping
+21:38:25.738 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":286,"action":"SERVER_PING"}
+21:38:25.738 - [Server server1] Recebido ping do servidor balancer
+21:38:25.912 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":294,"action":"SERVER_PING"}
+21:38:25.912 - [Server server1] Recebido ping do servidor server3
+21:38:28.284 - [Server server1] Requisição recebida: {"action":"USER_REGISTER","username":"PEDRO","password":"123"}
+21:38:28.304 - [Server server1] Salvos 1 usuários no arquivo
+21:38:28.304 - [Server server1] Usuário adicionado: PEDRO
+21:38:28.304 - [Server server1] Usuário registrado com sucesso: PEDRO
+21:38:28.305 - [Server server1] Evento de replicação adicionado à fila: USER_CREATED
+21:38:28.350 - [Server server1] Replicando evento USER_CREATED para outros servidores
+21:38:28.372 - [Server server1] Mensagem enviada para server3: {"sourceServerId":"server1","data":{"createdAt":"2025-05-22T21:38:28.285934200","password":"123","username":"PEDRO"},"logicalTime":296,"action":"DATA_REPLICATION","entityId":"PEDRO","eventType":"USER_CREATED","timestamp":1747960708305}
+21:38:28.377 - [Server server1] Mensagem enviada para server2: {"sourceServerId":"server1","data":{"createdAt":"2025-05-22T21:38:28.285934200","password":"123","username":"PEDRO"},"logicalTime":297,"action":"DATA_REPLICATION","entityId":"PEDRO","eventType":"USER_CREATED","timestamp":1747960708305}
+21:38:28.399 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":297}
+21:38:28.400 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":298}
+21:38:30.829 - [Server server1] Verificando status dos servidores...
+21:38:30.865 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":300,"action":"SERVER_PING"}
+21:38:30.869 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":301,"isActive":true,"serverId":"balancer"}
+21:38:30.884 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":303,"action":"SERVER_PING"}
+21:38:30.887 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":307,"isActive":true,"serverId":"server3"}
+21:38:30.901 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":309,"action":"SERVER_PING"}
+21:38:30.903 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":310,"isActive":true,"serverId":"server2"}
+21:38:30.904 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:38:33.894 - [Server server1] Mensagem recebida: {"logicalTime":310,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"server3"}
+21:38:35.808 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":318,"action":"SERVER_PING"}
+21:38:35.808 - [Server server1] Recebido ping do servidor server2
+21:38:40.731 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":323,"action":"SERVER_PING"}
+21:38:40.732 - [Server server1] Recebido ping do servidor balancer
+21:38:40.916 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":331,"action":"SERVER_PING"}
+21:38:40.916 - [Server server1] Recebido ping do servidor server3
+21:38:45.831 - [Server server1] Verificando status dos servidores...
+21:38:45.850 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":333,"action":"SERVER_PING"}
+21:38:45.853 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":334,"isActive":true,"serverId":"balancer"}
+21:38:45.865 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":336,"action":"SERVER_PING"}
+21:38:45.867 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":337,"isActive":true,"serverId":"server3"}
+21:38:45.877 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":339,"action":"SERVER_PING"}
+21:38:45.878 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":340,"isActive":true,"serverId":"server2"}
+21:38:45.879 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:38:50.807 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":348,"action":"SERVER_PING"}
+21:38:50.807 - [Server server1] Recebido ping do servidor server2
+21:38:53.838 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":350,"action":"IS_COORDINATOR_REQUEST"}
+21:38:53.840 - [Server server1] Resposta recebida de balancer: {"isCoordinator":false,"success":true,"logicalTime":351}
+21:38:53.857 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":353,"action":"IS_COORDINATOR_REQUEST"}
+21:38:53.860 - [Server server1] Resposta recebida de server3: {"isCoordinator":true,"success":true,"logicalTime":354}
+21:38:53.861 - [Server server1] Verificando se o coordenador server3 está ativo
+21:38:53.871 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":356,"action":"COORDINATOR_PING"}
+21:38:53.872 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":357}
+21:38:53.873 - [Server server1] Coordenador server3 respondeu ao ping
+21:38:55.754 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":363,"action":"SERVER_PING"}
+21:38:55.755 - [Server server1] Recebido ping do servidor balancer
+21:38:55.920 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":371,"action":"SERVER_PING"}
+21:38:55.921 - [Server server1] Recebido ping do servidor server3
+21:39:00.272 - [Server server1] Mensagem recebida: {"sourceServerId":"server3","data":{"createdAt":"2025-05-22T21:39:00.199425600","password":"123","username":"GUI"},"logicalTime":379,"action":"DATA_REPLICATION","entityId":"GUI","eventType":"USER_CREATED","timestamp":1747960740201}
+21:39:00.272 - [Server server1] === RECEBIDA MENSAGEM DE REPLICAÇÃO ===
+21:39:00.273 - [Server server1] ReplicationService disponível: true
+21:39:00.273 - [Server server1] Processando replicação: USER_CREATED de server3
+21:39:00.273 - [Server server1] Processando evento de replicação do tipo USER_CREATED do servidor server3
+21:39:00.274 - [Server server1] Processando evento de replicação: USER_CREATED para GUI
+21:39:00.276 - [Server server1] Salvos 2 usuários no arquivo
+21:39:00.276 - [Server server1] Usuário adicionado: GUI
+21:39:00.276 - [Server server1] Usuário GUI replicado com sucesso
+21:39:00.841 - [Server server1] Verificando status dos servidores...
+21:39:00.850 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":381,"action":"SERVER_PING"}
+21:39:00.852 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":382,"isActive":true,"serverId":"balancer"}
+21:39:00.864 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":384,"action":"SERVER_PING"}
+21:39:00.865 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":385,"isActive":true,"serverId":"server3"}
+21:39:00.879 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":387,"action":"SERVER_PING"}
+21:39:00.880 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":388,"isActive":true,"serverId":"server2"}
+21:39:00.881 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:39:03.898 - [Server server1] Mensagem recebida: {"logicalTime":388,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"server3"}
+21:39:04.869 - [Server server1] Mensagem recebida: {"coordinator":"server3","logicalTime":394,"action":"TIME_REQUEST","timestamp":1747960744852}
+21:39:04.869 - [Server server1] Recebida solicitação de tempo do coordenador server3. Diferença: 17ms
+21:39:04.894 - [Server server1] Mensagem enviada para server3: {"requestTimestamp":1747960744852,"responseTimestamp":1747960744869,"logicalTime":396,"action":"TIME_RESPONSE","timeDifference":17,"serverId":"server1"}
+21:39:04.896 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":399}
+21:39:05.796 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":409,"action":"SERVER_PING"}
+21:39:05.797 - [Server server1] Recebido ping do servidor server2
+21:39:07.894 - [Server server1] Mensagem recebida: {"coordinator":"server3","logicalTime":410,"action":"CLOCK_ADJUSTMENT","adjustment":-2}
+21:39:07.894 - [Server server1] Recebido ajuste de relógio do coordenador server3: -2ms
+21:39:07.894 - [Server server1] Relógio atualizado: offset anterior=-6, novo offset=-8, ajuste=-2ms
+21:39:07.895 - [Server server1] Relógio ajustado: novo offset = -8ms
+21:39:09.534 - [Server server1] Requisição recebida: {"action": "USER_LOGIN", "username": "GUI", "password": "123"}
+21:39:10.722 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":419,"action":"SERVER_PING"}
+21:39:10.723 - [Server server1] Recebido ping do servidor balancer
+21:39:10.919 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":427,"action":"SERVER_PING"}
+21:39:10.919 - [Server server1] Recebido ping do servidor server3
+21:39:15.836 - [Server server1] Verificando status dos servidores...
+21:39:15.849 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":429,"action":"SERVER_PING"}
+21:39:15.850 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":430,"isActive":true,"serverId":"balancer"}
+21:39:15.862 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":432,"action":"SERVER_PING"}
+21:39:15.864 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":433,"isActive":true,"serverId":"server3"}
+21:39:15.874 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":435,"action":"SERVER_PING"}
+21:39:15.876 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":436,"isActive":true,"serverId":"server2"}
+21:39:15.877 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:39:20.804 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":444,"action":"SERVER_PING"}
+21:39:20.804 - [Server server1] Recebido ping do servidor server2
+21:39:23.847 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":446,"action":"IS_COORDINATOR_REQUEST"}
+21:39:23.849 - [Server server1] Resposta recebida de balancer: {"isCoordinator":false,"success":true,"logicalTime":447}
+21:39:23.861 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":449,"action":"IS_COORDINATOR_REQUEST"}
+21:39:23.864 - [Server server1] Resposta recebida de server3: {"isCoordinator":true,"success":true,"logicalTime":450}
+21:39:23.865 - [Server server1] Verificando se o coordenador server3 está ativo
+21:39:23.886 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":452,"action":"COORDINATOR_PING"}
+21:39:23.888 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":453}
+21:39:23.888 - [Server server1] Coordenador server3 respondeu ao ping
+21:39:25.722 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":459,"action":"SERVER_PING"}
+21:39:25.723 - [Server server1] Recebido ping do servidor balancer
+21:39:25.926 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":467,"action":"SERVER_PING"}
+21:39:25.927 - [Server server1] Recebido ping do servidor server3
+21:39:30.840 - [Server server1] Verificando status dos servidores...
+21:39:30.862 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":469,"action":"SERVER_PING"}
+21:39:30.864 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":470,"isActive":true,"serverId":"balancer"}
+21:39:30.878 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":472,"action":"SERVER_PING"}
+21:39:30.881 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":474,"isActive":true,"serverId":"server3"}
+21:39:30.895 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":476,"action":"SERVER_PING"}
+21:39:30.899 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":477,"isActive":true,"serverId":"server2"}
+21:39:30.900 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:39:32.288 - [Server server1] Mensagem recebida: {"sourceServerId":"server2","data":{"read":false,"id":"54b96f91-7b1c-4684-ae6e-c64e0c90c6ac","sentAt":"2025-05-22T21:39:32.225324300","senderUsername":"GUI","content":"OI","receiverUsername":"PEDRO"},"logicalTime":479,"action":"DATA_REPLICATION","entityId":"54b96f91-7b1c-4684-ae6e-c64e0c90c6ac","eventType":"MESSAGE_SENT","timestamp":1747960772230}
+21:39:32.289 - [Server server1] === RECEBIDA MENSAGEM DE REPLICAÇÃO ===
+21:39:32.289 - [Server server1] ReplicationService disponível: true
+21:39:32.289 - [Server server1] Processando replicação: MESSAGE_SENT de server2
+21:39:32.289 - [Server server1] Processando evento de replicação do tipo MESSAGE_SENT do servidor server2
+21:39:32.289 - [Server server1] Processando evento de replicação: MESSAGE_SENT para 54b96f91-7b1c-4684-ae6e-c64e0c90c6ac
+21:39:32.292 - [Server server1] Salvas 1 mensagens no arquivo
+21:39:32.294 - [Server server1] Mensagem adicionada: 54b96f91-7b1c-4684-ae6e-c64e0c90c6ac de GUI para PEDRO
+21:39:32.294 - [Server server1] Mensagem 54b96f91-7b1c-4684-ae6e-c64e0c90c6ac replicada com sucesso
+21:39:33.869 - [Server server1] Mensagem recebida: {"logicalTime":482,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"server3"}
+21:39:35.793 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":490,"action":"SERVER_PING"}
+21:39:35.793 - [Server server1] Recebido ping do servidor server2
+21:39:40.757 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":495,"action":"SERVER_PING"}
+21:39:40.757 - [Server server1] Recebido ping do servidor balancer
+21:39:40.922 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":503,"action":"SERVER_PING"}
+21:39:40.922 - [Server server1] Recebido ping do servidor server3
+21:39:45.835 - [Server server1] Verificando status dos servidores...
+21:39:45.852 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":505,"action":"SERVER_PING"}
+21:39:45.854 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":506,"isActive":true,"serverId":"balancer"}
+21:39:45.861 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":508,"action":"SERVER_PING"}
+21:39:45.863 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":509,"isActive":true,"serverId":"server3"}
+21:39:45.877 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":511,"action":"SERVER_PING"}
+21:39:45.880 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":512,"isActive":true,"serverId":"server2"}
+21:39:45.881 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:39:50.802 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":520,"action":"SERVER_PING"}
+21:39:50.803 - [Server server1] Recebido ping do servidor server2
+21:39:53.831 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":522,"action":"IS_COORDINATOR_REQUEST"}
+21:39:53.834 - [Server server1] Resposta recebida de balancer: {"isCoordinator":false,"success":true,"logicalTime":523}
+21:39:53.843 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":525,"action":"IS_COORDINATOR_REQUEST"}
+21:39:53.844 - [Server server1] Resposta recebida de server3: {"isCoordinator":true,"success":true,"logicalTime":526}
+21:39:53.845 - [Server server1] Verificando se o coordenador server3 está ativo
+21:39:53.861 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":528,"action":"COORDINATOR_PING"}
+21:39:53.862 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":529}
+21:39:53.862 - [Server server1] Coordenador server3 respondeu ao ping
+21:39:55.746 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":535,"action":"SERVER_PING"}
+21:39:55.746 - [Server server1] Recebido ping do servidor balancer
+21:39:55.922 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":543,"action":"SERVER_PING"}
+21:39:55.923 - [Server server1] Recebido ping do servidor server3
+21:40:00.845 - [Server server1] Verificando status dos servidores...
+21:40:00.862 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":545,"action":"SERVER_PING"}
+21:40:00.864 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":546,"isActive":true,"serverId":"balancer"}
+21:40:00.880 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":548,"action":"SERVER_PING"}
+21:40:00.884 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":550,"isActive":true,"serverId":"server3"}
+21:40:00.901 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":552,"action":"SERVER_PING"}
+21:40:00.903 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":553,"isActive":true,"serverId":"server2"}
+21:40:00.906 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:40:03.168 - [Server server1] Requisição recebida no serviço de posts: {"action":"CREATE_POST","username":"PEDRO","content":"PUBLIC"}
+21:40:03.174 - [Server server1] Salvas 1 publicações no arquivo
+21:40:03.174 - [Server server1] Publicação adicionada: 4db1f523-2e14-4f9c-b33b-447999d324dc do usuário PEDRO
+21:40:03.174 - [Server server1] Post criado com sucesso: 4db1f523-2e14-4f9c-b33b-447999d324dc por PEDRO
+21:40:03.174 - [Server server1] Evento de replicação adicionado à fila: POST_CREATED
+21:40:03.194 - [Server server1] Replicando evento POST_CREATED para outros servidores
+21:40:03.216 - [Server server1] Mensagem enviada para server3: {"sourceServerId":"server1","data":{"createdAt":"2025-05-22T21:40:03.169690300","id":"4db1f523-2e14-4f9c-b33b-447999d324dc","content":"PUBLIC","username":"PEDRO","updatedAt":"2025-05-22T21:40:03.169690300"},"logicalTime":555,"action":"DATA_REPLICATION","entityId":"4db1f523-2e14-4f9c-b33b-447999d324dc","eventType":"POST_CREATED","timestamp":1747960803174}
+21:40:03.218 - [Server server1] Mensagem enviada para server2: {"sourceServerId":"server1","data":{"createdAt":"2025-05-22T21:40:03.169690300","id":"4db1f523-2e14-4f9c-b33b-447999d324dc","content":"PUBLIC","username":"PEDRO","updatedAt":"2025-05-22T21:40:03.169690300"},"logicalTime":556,"action":"DATA_REPLICATION","entityId":"4db1f523-2e14-4f9c-b33b-447999d324dc","eventType":"POST_CREATED","timestamp":1747960803174}
+21:40:03.224 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":556}
+21:40:03.224 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":557}
+21:40:03.869 - [Server server1] Mensagem recebida: {"logicalTime":559,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"server3"}
+21:40:04.886 - [Server server1] Mensagem recebida: {"coordinator":"server3","logicalTime":564,"action":"TIME_REQUEST","timestamp":1747960804850}
+21:40:04.887 - [Server server1] Recebida solicitação de tempo do coordenador server3. Diferença: 37ms
+21:40:04.911 - [Server server1] Mensagem enviada para server3: {"requestTimestamp":1747960804850,"responseTimestamp":1747960804887,"logicalTime":566,"action":"TIME_RESPONSE","timeDifference":37,"serverId":"server1"}
+21:40:04.912 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":571}
+21:40:05.835 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":581,"action":"SERVER_PING"}
+21:40:05.835 - [Server server1] Recebido ping do servidor server2
+21:40:07.889 - [Server server1] Mensagem recebida: {"coordinator":"server3","logicalTime":582,"action":"CLOCK_ADJUSTMENT","adjustment":-10}
+21:40:07.890 - [Server server1] Recebido ajuste de relógio do coordenador server3: -10ms
+21:40:07.891 - [Server server1] Relógio atualizado: offset anterior=-8, novo offset=-18, ajuste=-10ms
+21:40:07.891 - [Server server1] Relógio ajustado: novo offset = -18ms
+21:40:10.734 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":591,"action":"SERVER_PING"}
+21:40:10.734 - [Server server1] Recebido ping do servidor balancer
+21:40:10.925 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":599,"action":"SERVER_PING"}
+21:40:10.925 - [Server server1] Recebido ping do servidor server3
+21:40:15.837 - [Server server1] Verificando status dos servidores...
+21:40:15.855 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":601,"action":"SERVER_PING"}
+21:40:15.857 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":602,"isActive":true,"serverId":"balancer"}
+21:40:15.869 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":604,"action":"SERVER_PING"}
+21:40:15.871 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":605,"isActive":true,"serverId":"server3"}
+21:40:15.888 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":607,"action":"SERVER_PING"}
+21:40:15.891 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":608,"isActive":true,"serverId":"server2"}
+21:40:15.891 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:40:20.795 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":616,"action":"SERVER_PING"}
+21:40:20.795 - [Server server1] Recebido ping do servidor server2
+21:40:23.837 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":618,"action":"IS_COORDINATOR_REQUEST"}
+21:40:23.838 - [Server server1] Resposta recebida de balancer: {"isCoordinator":false,"success":true,"logicalTime":619}
+21:40:23.857 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":621,"action":"IS_COORDINATOR_REQUEST"}
+21:40:23.867 - [Server server1] Resposta recebida de server3: {"isCoordinator":true,"success":true,"logicalTime":622}
+21:40:23.868 - [Server server1] Verificando se o coordenador server3 está ativo
+21:40:23.881 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":624,"action":"COORDINATOR_PING"}
+21:40:23.883 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":625}
+21:40:23.884 - [Server server1] Coordenador server3 respondeu ao ping
+21:40:25.738 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":631,"action":"SERVER_PING"}
+21:40:25.738 - [Server server1] Recebido ping do servidor balancer
+21:40:25.919 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":639,"action":"SERVER_PING"}
+21:40:25.919 - [Server server1] Recebido ping do servidor server3
+21:40:26.505 - [Server server1] Mensagem recebida: {"sourceServerId":"server3","data":{"followerUsername":"GUI","username":"PEDRO"},"logicalTime":642,"action":"DATA_REPLICATION","entityId":"PEDRO_GUI","eventType":"FOLLOW_ADDED","timestamp":1747960826422}
+21:40:26.505 - [Server server1] === RECEBIDA MENSAGEM DE REPLICAÇÃO ===
+21:40:26.505 - [Server server1] ReplicationService disponível: true
+21:40:26.506 - [Server server1] Processando replicação: FOLLOW_ADDED de server3
+21:40:26.506 - [Server server1] Processando evento de replicação do tipo FOLLOW_ADDED do servidor server3
+21:40:26.506 - [Server server1] Processando evento de replicação: FOLLOW_ADDED para PEDRO_GUI
+21:40:26.507 - [Server server1] Salvos 2 usuários no arquivo
+21:40:26.507 - [Server server1] Usuário atualizado: PEDRO
+21:40:26.508 - [Server server1] Salvos 2 usuários no arquivo
+21:40:26.508 - [Server server1] Usuário atualizado: GUI
+21:40:26.509 - [Server server1] Relação de seguidor adicionada: GUI segue PEDRO
+21:40:30.839 - [Server server1] Verificando status dos servidores...
+21:40:30.862 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":644,"action":"SERVER_PING"}
+21:40:30.864 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":647,"isActive":true,"serverId":"balancer"}
+21:40:30.875 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":649,"action":"SERVER_PING"}
+21:40:30.878 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":653,"isActive":true,"serverId":"server3"}
+21:40:30.889 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":655,"action":"SERVER_PING"}
+21:40:30.891 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":656,"isActive":true,"serverId":"server2"}
+21:40:30.891 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:40:32.879 - [Server server1] Requisição recebida no serviço de seguidores: {"action": "GET_FOLLOWERS", "username": "GUI"}
+21:40:33.884 - [Server server1] Mensagem recebida: {"logicalTime":656,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"server3"}
+21:40:35.807 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":664,"action":"SERVER_PING"}
+21:40:35.807 - [Server server1] Recebido ping do servidor server2
+21:40:40.727 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":669,"action":"SERVER_PING"}
+21:40:40.728 - [Server server1] Recebido ping do servidor balancer
+21:40:40.912 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":677,"action":"SERVER_PING"}
+21:40:40.912 - [Server server1] Recebido ping do servidor server3
+21:40:45.831 - [Server server1] Verificando status dos servidores...
+21:40:45.851 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":679,"action":"SERVER_PING"}
+21:40:45.854 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":680,"isActive":true,"serverId":"balancer"}
+21:40:45.863 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":682,"action":"SERVER_PING"}
+21:40:45.864 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":683,"isActive":true,"serverId":"server3"}
+21:40:45.874 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":685,"action":"SERVER_PING"}
+21:40:45.876 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":686,"isActive":true,"serverId":"server2"}
+21:40:45.876 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:40:50.800 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":694,"action":"SERVER_PING"}
+21:40:50.800 - [Server server1] Recebido ping do servidor server2
+21:40:53.828 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":696,"action":"IS_COORDINATOR_REQUEST"}
+21:40:53.829 - [Server server1] Resposta recebida de balancer: {"isCoordinator":false,"success":true,"logicalTime":697}
+21:40:53.843 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":699,"action":"IS_COORDINATOR_REQUEST"}
+21:40:53.846 - [Server server1] Resposta recebida de server3: {"isCoordinator":true,"success":true,"logicalTime":700}
+21:40:53.847 - [Server server1] Verificando se o coordenador server3 está ativo
+21:40:53.861 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":702,"action":"COORDINATOR_PING"}
+21:40:53.863 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":703}
+21:40:53.864 - [Server server1] Coordenador server3 respondeu ao ping
+21:40:55.720 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":709,"action":"SERVER_PING"}
+21:40:55.720 - [Server server1] Recebido ping do servidor balancer
+21:40:55.900 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":717,"action":"SERVER_PING"}
+21:40:55.900 - [Server server1] Recebido ping do servidor server3
+21:41:00.844 - [Server server1] Verificando status dos servidores...
+21:41:00.856 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":719,"action":"SERVER_PING"}
+21:41:00.858 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":720,"isActive":true,"serverId":"balancer"}
+21:41:00.871 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":722,"action":"SERVER_PING"}
+21:41:00.873 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":724,"isActive":true,"serverId":"server3"}
+21:41:00.885 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":726,"action":"SERVER_PING"}
+21:41:00.887 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":727,"isActive":true,"serverId":"server2"}
+21:41:00.888 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:41:02.222 - [Server server1] Requisição recebida no serviço de mensagens: {"action": "GET_CONVERSATION", "username1": "GUI", "username2": "PEDRO"}
+21:41:03.880 - [Server server1] Mensagem recebida: {"logicalTime":727,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"server3"}
+21:41:04.886 - [Server server1] Mensagem recebida: {"coordinator":"server3","logicalTime":733,"action":"TIME_REQUEST","timestamp":1747960864859}
+21:41:04.887 - [Server server1] Recebida solicitação de tempo do coordenador server3. Diferença: 27ms
+21:41:04.910 - [Server server1] Mensagem enviada para server3: {"requestTimestamp":1747960864859,"responseTimestamp":1747960864886,"logicalTime":735,"action":"TIME_RESPONSE","timeDifference":27,"serverId":"server1"}
+21:41:04.911 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":738}
+21:41:05.811 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":747,"action":"SERVER_PING"}
+21:41:05.811 - [Server server1] Recebido ping do servidor server2
+21:41:07.910 - [Server server1] Mensagem recebida: {"coordinator":"server3","logicalTime":748,"action":"CLOCK_ADJUSTMENT","adjustment":-8}
+21:41:07.910 - [Server server1] Recebido ajuste de relógio do coordenador server3: -8ms
+21:41:07.910 - [Server server1] Relógio atualizado: offset anterior=-18, novo offset=-26, ajuste=-8ms
+21:41:07.911 - [Server server1] Relógio ajustado: novo offset = -26ms
+21:41:10.728 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":758,"action":"SERVER_PING"}
+21:41:10.728 - [Server server1] Recebido ping do servidor balancer
+21:41:10.919 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":766,"action":"SERVER_PING"}
+21:41:10.919 - [Server server1] Recebido ping do servidor server3
+21:41:13.767 - [Server server1] Mensagem recebida: {"sourceServerId":"server2","data":{"read":false,"id":"bd091e61-4a20-423d-b6b0-f89951f3c3d7","sentAt":"2025-05-22T21:41:13.720513","senderUsername":"PEDRO","content":"OI2","receiverUsername":"GUI"},"logicalTime":766,"action":"DATA_REPLICATION","entityId":"bd091e61-4a20-423d-b6b0-f89951f3c3d7","eventType":"MESSAGE_SENT","timestamp":1747960873722}
+21:41:13.767 - [Server server1] === RECEBIDA MENSAGEM DE REPLICAÇÃO ===
+21:41:13.768 - [Server server1] ReplicationService disponível: true
+21:41:13.768 - [Server server1] Processando replicação: MESSAGE_SENT de server2
+21:41:13.768 - [Server server1] Processando evento de replicação do tipo MESSAGE_SENT do servidor server2
+21:41:13.768 - [Server server1] Processando evento de replicação: MESSAGE_SENT para bd091e61-4a20-423d-b6b0-f89951f3c3d7
+21:41:13.769 - [Server server1] Salvas 2 mensagens no arquivo
+21:41:13.770 - [Server server1] Mensagem adicionada: bd091e61-4a20-423d-b6b0-f89951f3c3d7 de PEDRO para GUI
+21:41:13.770 - [Server server1] Mensagem bd091e61-4a20-423d-b6b0-f89951f3c3d7 replicada com sucesso
+21:41:15.841 - [Server server1] Verificando status dos servidores...
+21:41:15.852 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":769,"action":"SERVER_PING"}
+21:41:15.853 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":770,"isActive":true,"serverId":"balancer"}
+21:41:15.872 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":772,"action":"SERVER_PING"}
+21:41:15.874 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":773,"isActive":true,"serverId":"server3"}
+21:41:15.892 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":775,"action":"SERVER_PING"}
+21:41:15.893 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":776,"isActive":true,"serverId":"server2"}
+21:41:15.895 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:41:20.800 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":784,"action":"SERVER_PING"}
+21:41:20.800 - [Server server1] Recebido ping do servidor server2
+21:41:23.832 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":786,"action":"IS_COORDINATOR_REQUEST"}
+21:41:23.834 - [Server server1] Resposta recebida de balancer: {"isCoordinator":false,"success":true,"logicalTime":787}
+21:41:23.850 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":789,"action":"IS_COORDINATOR_REQUEST"}
+21:41:23.853 - [Server server1] Resposta recebida de server3: {"isCoordinator":true,"success":true,"logicalTime":790}
+21:41:23.854 - [Server server1] Verificando se o coordenador server3 está ativo
+21:41:23.865 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":792,"action":"COORDINATOR_PING"}
+21:41:23.866 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":793}
+21:41:23.867 - [Server server1] Coordenador server3 respondeu ao ping
+21:41:25.734 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":799,"action":"SERVER_PING"}
+21:41:25.734 - [Server server1] Recebido ping do servidor balancer
+21:41:25.919 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":807,"action":"SERVER_PING"}
+21:41:25.919 - [Server server1] Recebido ping do servidor server3
+21:41:30.833 - [Server server1] Verificando status dos servidores...
+21:41:30.854 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":809,"action":"SERVER_PING"}
+21:41:30.856 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":810,"isActive":true,"serverId":"balancer"}
+21:41:30.868 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":812,"action":"SERVER_PING"}
+21:41:30.869 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":814,"isActive":true,"serverId":"server3"}
+21:41:30.879 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":816,"action":"SERVER_PING"}
+21:41:30.881 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":817,"isActive":true,"serverId":"server2"}
+21:41:30.881 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:41:33.877 - [Server server1] Mensagem recebida: {"logicalTime":817,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"server3"}
+21:41:35.806 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":825,"action":"SERVER_PING"}
+21:41:35.806 - [Server server1] Recebido ping do servidor server2
+21:41:40.725 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":830,"action":"SERVER_PING"}
+21:41:40.726 - [Server server1] Recebido ping do servidor balancer
+21:41:40.939 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":838,"action":"SERVER_PING"}
+21:41:40.939 - [Server server1] Recebido ping do servidor server3
+21:41:45.831 - [Server server1] Verificando status dos servidores...
+21:41:45.847 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":840,"action":"SERVER_PING"}
+21:41:45.847 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":841,"isActive":true,"serverId":"balancer"}
+21:41:45.862 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":843,"action":"SERVER_PING"}
+21:41:45.863 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":844,"isActive":true,"serverId":"server3"}
+21:41:45.872 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":846,"action":"SERVER_PING"}
+21:41:45.873 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":847,"isActive":true,"serverId":"server2"}
+21:41:45.874 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:41:48.095 - [Server server1] Requisição recebida: {"action": "USER_LOGIN", "username": "PEDRO", "password": "321"}
+21:41:50.816 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":855,"action":"SERVER_PING"}
+21:41:50.816 - [Server server1] Recebido ping do servidor server2
+21:41:53.841 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":857,"action":"IS_COORDINATOR_REQUEST"}
+21:41:53.842 - [Server server1] Resposta recebida de balancer: {"isCoordinator":false,"success":true,"logicalTime":858}
+21:41:53.855 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":860,"action":"IS_COORDINATOR_REQUEST"}
+21:41:53.858 - [Server server1] Resposta recebida de server3: {"isCoordinator":true,"success":true,"logicalTime":861}
+21:41:53.859 - [Server server1] Verificando se o coordenador server3 está ativo
+21:41:53.869 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":863,"action":"COORDINATOR_PING"}
+21:41:53.871 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":864}
+21:41:53.872 - [Server server1] Coordenador server3 respondeu ao ping
+21:41:55.715 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":870,"action":"SERVER_PING"}
+21:41:55.715 - [Server server1] Recebido ping do servidor balancer
+21:41:55.908 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":878,"action":"SERVER_PING"}
+21:41:55.908 - [Server server1] Recebido ping do servidor server3
+21:42:00.831 - [Server server1] Verificando status dos servidores...
+21:42:00.846 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":880,"action":"SERVER_PING"}
+21:42:00.848 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":881,"isActive":true,"serverId":"balancer"}
+21:42:00.859 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":883,"action":"SERVER_PING"}
+21:42:00.861 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":885,"isActive":true,"serverId":"server3"}
+21:42:00.878 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":887,"action":"SERVER_PING"}
+21:42:00.880 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":888,"isActive":true,"serverId":"server2"}
+21:42:00.881 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:42:03.887 - [Server server1] Mensagem recebida: {"logicalTime":886,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"server3"}
+21:42:04.883 - [Server server1] Mensagem recebida: {"coordinator":"server3","logicalTime":896,"action":"TIME_REQUEST","timestamp":1747960924857}
+21:42:04.883 - [Server server1] Recebida solicitação de tempo do coordenador server3. Diferença: 26ms
+21:42:04.905 - [Server server1] Mensagem enviada para server3: {"requestTimestamp":1747960924857,"responseTimestamp":1747960924883,"logicalTime":898,"action":"TIME_RESPONSE","timeDifference":26,"serverId":"server1"}
+21:42:04.907 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":900}
+21:42:05.819 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":910,"action":"SERVER_PING"}
+21:42:05.819 - [Server server1] Recebido ping do servidor server2
+21:42:07.896 - [Server server1] Mensagem recebida: {"coordinator":"server3","logicalTime":911,"action":"CLOCK_ADJUSTMENT","adjustment":-7}
+21:42:07.896 - [Server server1] Recebido ajuste de relógio do coordenador server3: -7ms
+21:42:07.896 - [Server server1] Relógio atualizado: offset anterior=-26, novo offset=-33, ajuste=-7ms
+21:42:07.896 - [Server server1] Relógio ajustado: novo offset = -33ms
+21:42:10.719 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":921,"action":"SERVER_PING"}
+21:42:10.719 - [Server server1] Recebido ping do servidor balancer
+21:42:10.898 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":929,"action":"SERVER_PING"}
+21:42:10.898 - [Server server1] Recebido ping do servidor server3
+21:42:13.279 - [Server server1] Mensagem recebida: {"sourceServerId":"server3","data":{"createdAt":"2025-05-22T21:42:13.235549300","id":"e96c6503-8984-49b5-95ca-fbca17e0197a","content":"PUBLIC2","username":"PEDRO","updatedAt":"2025-05-22T21:42:13.235549300"},"logicalTime":933,"action":"DATA_REPLICATION","entityId":"e96c6503-8984-49b5-95ca-fbca17e0197a","eventType":"POST_CREATED","timestamp":1747960933237}
+21:42:13.279 - [Server server1] === RECEBIDA MENSAGEM DE REPLICAÇÃO ===
+21:42:13.279 - [Server server1] ReplicationService disponível: true
+21:42:13.279 - [Server server1] Processando replicação: POST_CREATED de server3
+21:42:13.279 - [Server server1] Processando evento de replicação do tipo POST_CREATED do servidor server3
+21:42:13.280 - [Server server1] Processando evento de replicação: POST_CREATED para e96c6503-8984-49b5-95ca-fbca17e0197a
+21:42:13.281 - [Server server1] Salvas 2 publicações no arquivo
+21:42:13.281 - [Server server1] Publicação adicionada: e96c6503-8984-49b5-95ca-fbca17e0197a do usuário PEDRO
+21:42:13.281 - [Server server1] Post e96c6503-8984-49b5-95ca-fbca17e0197a replicado com sucesso
+21:42:15.837 - [Server server1] Verificando status dos servidores...
+21:42:15.854 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":935,"action":"SERVER_PING"}
+21:42:15.857 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":936,"isActive":true,"serverId":"balancer"}
+21:42:15.868 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":938,"action":"SERVER_PING"}
+21:42:15.870 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":939,"isActive":true,"serverId":"server3"}
+21:42:15.885 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":941,"action":"SERVER_PING"}
+21:42:15.887 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":942,"isActive":true,"serverId":"server2"}
+21:42:15.888 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:42:18.032 - [Server server1] Requisição recebida no serviço de posts: {"action":"GET_USER_POSTS","username":"PEDRO"}
+21:42:20.806 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":950,"action":"SERVER_PING"}
+21:42:20.806 - [Server server1] Recebido ping do servidor server2
+21:42:23.839 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":952,"action":"IS_COORDINATOR_REQUEST"}
+21:42:23.841 - [Server server1] Resposta recebida de balancer: {"isCoordinator":false,"success":true,"logicalTime":953}
+21:42:23.849 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":955,"action":"IS_COORDINATOR_REQUEST"}
+21:42:23.850 - [Server server1] Resposta recebida de server3: {"isCoordinator":true,"success":true,"logicalTime":956}
+21:42:23.850 - [Server server1] Verificando se o coordenador server3 está ativo
+21:42:23.861 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":958,"action":"COORDINATOR_PING"}
+21:42:23.862 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":959}
+21:42:23.863 - [Server server1] Coordenador server3 respondeu ao ping
+21:42:25.720 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":965,"action":"SERVER_PING"}
+21:42:25.720 - [Server server1] Recebido ping do servidor balancer
+21:42:25.907 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":973,"action":"SERVER_PING"}
+21:42:25.907 - [Server server1] Recebido ping do servidor server3
+21:42:30.833 - [Server server1] Verificando status dos servidores...
+21:42:30.849 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":975,"action":"SERVER_PING"}
+21:42:30.851 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":976,"isActive":true,"serverId":"balancer"}
+21:42:30.863 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":978,"action":"SERVER_PING"}
+21:42:30.865 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":980,"isActive":true,"serverId":"server3"}
+21:42:30.881 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":982,"action":"SERVER_PING"}
+21:42:30.882 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":983,"isActive":true,"serverId":"server2"}
+21:42:30.883 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:42:33.881 - [Server server1] Mensagem recebida: {"logicalTime":983,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"server3"}
+21:42:35.802 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":991,"action":"SERVER_PING"}
+21:42:35.802 - [Server server1] Recebido ping do servidor server2
+21:42:40.738 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":996,"action":"SERVER_PING"}
+21:42:40.738 - [Server server1] Recebido ping do servidor balancer
+21:42:40.915 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":1004,"action":"SERVER_PING"}
+21:42:40.915 - [Server server1] Recebido ping do servidor server3
+21:42:45.844 - [Server server1] Verificando status dos servidores...
+21:42:45.864 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":1006,"action":"SERVER_PING"}
+21:42:45.867 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":1007,"isActive":true,"serverId":"balancer"}
+21:42:45.878 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":1009,"action":"SERVER_PING"}
+21:42:45.880 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":1010,"isActive":true,"serverId":"server3"}
+21:42:45.892 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":1012,"action":"SERVER_PING"}
+21:42:45.893 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":1013,"isActive":true,"serverId":"server2"}
+21:42:45.893 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:42:50.798 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":1021,"action":"SERVER_PING"}
+21:42:50.798 - [Server server1] Recebido ping do servidor server2
+21:42:53.831 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":1023,"action":"IS_COORDINATOR_REQUEST"}
+21:42:53.832 - [Server server1] Resposta recebida de balancer: {"isCoordinator":false,"success":true,"logicalTime":1024}
+21:42:53.845 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":1026,"action":"IS_COORDINATOR_REQUEST"}
+21:42:53.846 - [Server server1] Resposta recebida de server3: {"isCoordinator":true,"success":true,"logicalTime":1027}
+21:42:53.847 - [Server server1] Verificando se o coordenador server3 está ativo
+21:42:53.856 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":1029,"action":"COORDINATOR_PING"}
+21:42:53.857 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":1030}
+21:42:53.858 - [Server server1] Coordenador server3 respondeu ao ping
+21:42:55.732 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":1036,"action":"SERVER_PING"}
+21:42:55.732 - [Server server1] Recebido ping do servidor balancer
+21:42:55.919 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":1044,"action":"SERVER_PING"}
+21:42:55.919 - [Server server1] Recebido ping do servidor server3
+21:43:00.832 - [Server server1] Verificando status dos servidores...
+21:43:00.844 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":1046,"action":"SERVER_PING"}
+21:43:00.846 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":1047,"isActive":true,"serverId":"balancer"}
+21:43:00.857 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":1049,"action":"SERVER_PING"}
+21:43:00.858 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":1051,"isActive":true,"serverId":"server3"}
+21:43:00.870 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":1053,"action":"SERVER_PING"}
+21:43:00.871 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":1054,"isActive":true,"serverId":"server2"}
+21:43:00.872 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
+21:43:03.875 - [Server server1] Mensagem recebida: {"logicalTime":1054,"action":"COORDINATOR_HEARTBEAT","coordinatorId":"server3"}
+21:43:04.889 - [Server server1] Mensagem recebida: {"coordinator":"server3","logicalTime":1060,"action":"TIME_REQUEST","timestamp":1747960984857}
+21:43:04.890 - [Server server1] Recebida solicitação de tempo do coordenador server3. Diferença: 33ms
+21:43:04.914 - [Server server1] Mensagem enviada para server3: {"requestTimestamp":1747960984857,"responseTimestamp":1747960984890,"logicalTime":1062,"action":"TIME_RESPONSE","timeDifference":33,"serverId":"server1"}
+21:43:04.915 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":1066}
+21:43:05.807 - [Server server1] Mensagem recebida: {"fromServer":"server2","logicalTime":1074,"action":"SERVER_PING"}
+21:43:05.807 - [Server server1] Recebido ping do servidor server2
+21:43:07.900 - [Server server1] Mensagem recebida: {"coordinator":"server3","logicalTime":1075,"action":"CLOCK_ADJUSTMENT","adjustment":-8}
+21:43:07.900 - [Server server1] Recebido ajuste de relógio do coordenador server3: -8ms
+21:43:07.900 - [Server server1] Relógio atualizado: offset anterior=-33, novo offset=-41, ajuste=-8ms
+21:43:07.901 - [Server server1] Relógio ajustado: novo offset = -41ms
+21:43:10.722 - [Server server1] Mensagem recebida: {"fromServer":"balancer","logicalTime":1084,"action":"SERVER_PING"}
+21:43:10.722 - [Server server1] Recebido ping do servidor balancer
+21:43:10.913 - [Server server1] Mensagem recebida: {"fromServer":"server3","logicalTime":1092,"action":"SERVER_PING"}
+21:43:10.913 - [Server server1] Recebido ping do servidor server3
+21:43:15.841 - [Server server1] Verificando status dos servidores...
+21:43:15.858 - [Server server1] Mensagem enviada para balancer: {"fromServer":"server1","logicalTime":1094,"action":"SERVER_PING"}
+21:43:15.859 - [Server server1] Resposta recebida de balancer: {"success":true,"logicalTime":1095,"isActive":true,"serverId":"balancer"}
+21:43:15.873 - [Server server1] Mensagem enviada para server3: {"fromServer":"server1","logicalTime":1097,"action":"SERVER_PING"}
+21:43:15.876 - [Server server1] Resposta recebida de server3: {"success":true,"logicalTime":1098,"isActive":true,"serverId":"server3"}
+21:43:15.894 - [Server server1] Mensagem enviada para server2: {"fromServer":"server1","logicalTime":1100,"action":"SERVER_PING"}
+21:43:15.896 - [Server server1] Resposta recebida de server2: {"success":true,"logicalTime":1101,"isActive":true,"serverId":"server2"}
+21:43:15.896 - [Server server1] Verificação completa: 3 servidores ativos, 0 servidores inativos
