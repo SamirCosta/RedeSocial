@@ -1,17 +1,31 @@
-Como testar
+# Como Testar
 
-Pré-requisitos
+## Pré-requisitos
 
-Java 11+ (para os servidores)
-Python 3.7+ (para cliente Python)
-Node.js 14+ (para cliente JavaScript)
-Maven (para compilação)
-ZeroMQ (biblioteca de mensageria)
+Certifique-se de que os seguintes softwares estejam instalados no seu sistema:
 
-Execução
+- **Java 11+** (para os servidores)  
+- **Python 3.7+** (para os clientes Python)  
+- **Node.js 14+** (para os clientes JavaScript)  
+- **Maven** (para compilação dos servidores Java)  
+- **ZeroMQ** (biblioteca de mensageria utilizada na comunicação)
 
-Primeiro passo é executar o arquivo "run-servers.bat" dentro da pasta "Server" e aguardar a inicialização de todos os serviços
+## Execução
 
-Segundo passo executar o arquivo "run-clients.bat" dentro da pasta "Client"
+1. **Inicie os servidores**  
+   Execute o arquivo `run-servers.bat` localizado na pasta `Server`. Aguarde até que todos os serviços sejam inicializados.
 
-Após esses passos serão abertas 4 janelas para 3 servidores e 1 balancer. Além de 5 janelas, 3 clients em Python e 2 em Javascript
+2. **Inicie os clientes**  
+   Execute o arquivo `run-clients.bat` localizado na pasta `Client`.
+
+## Resultado Esperado
+
+Após a execução dos passos acima, serão abertas:
+
+- **4 janelas de terminal** para:
+  - 3 servidores
+  - 1 balanceador de carga
+
+- **5 janelas de terminal** para os clientes:
+  - 3 clientes em Python
+  - 2 clientes em JavaScript
